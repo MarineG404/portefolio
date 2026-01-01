@@ -91,83 +91,83 @@ const props = defineProps({ items: { type: Array, required: true } })
 const currentYear = new Date().getFullYear()
 
 function parseYears(dateStr) {
-	const matches = Array.from(String(dateStr).matchAll(/(\d{2})-(\d{4})/g))
+  const matches = Array.from(String(dateStr).matchAll(/(\d{2})-(\d{4})/g))
 
-	if (matches.length >= 2) {
-		const startMonth = parseInt(matches[0][1], 10)
-		const startYear = parseInt(matches[0][2], 10)
-		const endMonth = parseInt(matches[1][1], 10)
-		const endYear = parseInt(matches[1][2], 10)
+  if (matches.length >= 2) {
+    const startMonth = parseInt(matches[0][1], 10)
+    const startYear = parseInt(matches[0][2], 10)
+    const endMonth = parseInt(matches[1][1], 10)
+    const endYear = parseInt(matches[1][2], 10)
 
-		const start = startYear + (startMonth - 1) / 12
-		const end = endYear + (endMonth - 1) / 12
+    const start = startYear + (startMonth - 1) / 12
+    const end = endYear + (endMonth - 1) / 12
 
-		return { start, end }
-	}
+    return { start, end }
+  }
 
-	if (matches.length === 1) {
-		const year = parseInt(matches[0][2], 10)
-		const month = parseInt(matches[0][1], 10)
-		const decimal = year + (month - 1) / 12
-		return { start: decimal, end: decimal }
-	}
+  if (matches.length === 1) {
+    const year = parseInt(matches[0][2], 10)
+    const month = parseInt(matches[0][1], 10)
+    const decimal = year + (month - 1) / 12
+    return { start: decimal, end: decimal }
+  }
 
-	return { start: currentYear, end: currentYear }
+  return { start: currentYear, end: currentYear }
 }
 
 const parsedItems = computed(() => {
-	const raw = (props.items || []).map((it) => {
-		const { start, end } = parseYears(it.date)
-		return { ...it, start, end }
-	})
+  const raw = (props.items || []).map((it) => {
+    const { start, end } = parseYears(it.date)
+    return { ...it, start, end }
+  })
 
-	if (raw.length === 0) return []
+  if (raw.length === 0) return []
 
-	const min = Math.min(...raw.map(r => r.start))
-	const max = Math.max(...raw.map(r => r.end))
-	const span = max - min
+  const min = Math.min(...raw.map(r => r.start))
+  const max = Math.max(...raw.map(r => r.end))
+  const span = max - min
 
-	const sorted = raw.sort((a, b) => a.start - b.start)
+  const sorted = raw.sort((a, b) => a.start - b.start)
 
-	const itemsWithPositions = []
-	const typeRows = { solfege: [], instrument: [], groupe: [] }
+  const itemsWithPositions = []
+  const typeRows = { solfege: [], instrument: [], groupe: [] }
 
-	sorted.forEach((r) => {
-		const left = ((r.start - min) / span) * 100
-		const width = ((r.end - r.start) / span) * 100
+  sorted.forEach((r) => {
+    const left = ((r.start - min) / span) * 100
+    const width = ((r.end - r.start) / span) * 100
 
-		const rows = typeRows[r.type]
-		let rowIndex = 0
+    const rows = typeRows[r.type]
+    let rowIndex = 0
 
-		// Chercher une ligne où cet élément peut s'insérer sans chevauchement
-		for (let i = 0; i < rows.length; i++) {
-		if (left >= rows[i] + 0.5) { // +0.5 pour un petit espace entre les barres
-			rowIndex = i
-			break
-		}
-		rowIndex = i + 1
-		}
+    // Chercher une ligne où cet élément peut s'insérer sans chevauchement
+    for (let i = 0; i < rows.length; i++) {
+      if (left >= rows[i] + 0.5) { // +0.5 pour un petit espace entre les barres
+        rowIndex = i
+        break
+      }
+      rowIndex = i + 1
+    }
 
-		if (rowIndex >= rows.length) {
-		rows.push(0)
-		}
+    if (rowIndex >= rows.length) {
+      rows.push(0)
+    }
 
-		rows[rowIndex] = left + width
+    rows[rowIndex] = left + width
 
-		itemsWithPositions.push({
-		...r,
-		left,
-		width,
-		row: rowIndex
-		})
-	})
+    itemsWithPositions.push({
+      ...r,
+      left,
+      width,
+      row: rowIndex
+    })
+  })
 
-	return itemsWithPositions
+  return itemsWithPositions
 })
 
 function extractShortTitle(title) {
-	const parts = title.split('—')
-	return parts[0].trim()
+  const parts = title.split('—')
+  return parts[0].trim()
 }
 
 const solfegeItems = computed(() => parsedItems.value.filter(it => it.type === 'solfege'))
@@ -175,35 +175,36 @@ const instrumentItems = computed(() => parsedItems.value.filter(it => it.type ==
 const groupeItems = computed(() => parsedItems.value.filter(it => it.type === 'groupe'))
 
 const minYear = computed(() => {
-	if (!parsedItems.value.length) return 2007
-	return Math.floor(Math.min(...parsedItems.value.map(r => r.start)))
+  if (!parsedItems.value.length) return 2007
+  return Math.floor(Math.min(...parsedItems.value.map(r => r.start)))
 })
 
 const maxYear = computed(() => {
-	if (!parsedItems.value.length) return currentYear
-	return Math.ceil(Math.max(...parsedItems.value.map(r => r.end)))
+  if (!parsedItems.value.length) return currentYear
+  return Math.ceil(Math.max(...parsedItems.value.map(r => r.end)))
 })
 
 const intermediateYears = computed(() => {
-	const min = minYear.value
-	const max = maxYear.value
-	const span = max - min
-	const years = []
+  const min = minYear.value
+  const max = maxYear.value
+  const span = max - min
+  const years = []
 
-	const step = span > 15 ? 5 : 3
+  // Ajouter des repères tous les 3-5 ans selon l'étendue
+  const step = span > 15 ? 5 : 3
 
-	for (let year = min + step; year < max; year += step) {
-		years.push(year)
-	}
+  for (let year = min + step; year < max; year += step) {
+    years.push(year)
+  }
 
-	return years
+  return years
 })
 
 function getYearPosition(year) {
-	const min = minYear.value
-	const max = maxYear.value
-	const span = max - min
-	return ((year - min) / span) * 100
+  const min = minYear.value
+  const max = maxYear.value
+  const span = max - min
+  return ((year - min) / span) * 100
 }
 </script>
 
@@ -219,9 +220,17 @@ function getYearPosition(year) {
     color: var(--text-secondary);
     margin-bottom: 16px;
     padding: 0 120px 0 0;
+    position: relative;
 
     .ruler-label {
       font-weight: 600;
+
+      &.intermediate {
+        position: absolute;
+        transform: translateX(-50%);
+        font-weight: 500;
+        opacity: 0.7;
+      }
     }
   }
 

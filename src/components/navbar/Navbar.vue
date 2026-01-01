@@ -8,8 +8,6 @@
 			<div class="item">
 				<router-link :to="{ path: '/', hash: '#projects' }">Projets</router-link>
 				<router-link :to="{ path: '/music' }">Musique</router-link>
-				<router-link :to="{ path: '/', hash: '#about' }">À propos</router-link>
-				<router-link :to="{ path: '/', hash: '#contact' }">Contact</router-link>
 				<button class="theme-toggle" id="theme-toggle" aria-label="Changer de thème" @click="toggleTheme">
 					<i :class="isLight ? 'ri-moon-line' : 'ri-sun-line'"></i>
 				</button>
@@ -65,7 +63,9 @@ nav {
 		justify-content: space-between;
 		align-items: center;
 		width: 80%;
+		max-width: 100%;
 		padding: 20px;
+		box-sizing: border-box;
 	}
 
 	.main {
@@ -73,12 +73,21 @@ nav {
 		flex-direction: column;
 		gap: 5px;
 		color: var(--accent);
+
+		h1 {
+			line-height: 1.2;
+			white-space: normal;
+		}
 	}
 
 	.item {
 		display: flex;
 		gap: 25px;
 		align-items: center;
+
+		a {
+			font-size: 1.1rem;
+		}
 
 		a:hover {
 			color: var(--accent-hover);
@@ -105,6 +114,62 @@ nav {
 				margin: 0;
 			}
 		}
+	}
+}
+
+@media (max-width: 900px) {
+	nav .nav-container {
+		width: 90%;
+		padding: 16px 12px;
+	}
+
+	nav .item {
+		gap: 18px;
+	}
+
+	nav .item a {
+		font-size: 1rem;
+	}
+}
+
+@media (max-width: 600px) {
+	nav .nav-container {
+		width: 94%;
+		padding: 14px 10px;
+	}
+
+	nav .item {
+		gap: 14px;
+	}
+
+	nav .item a {
+		font-size: 0.95rem;
+	}
+
+	nav .item .theme-toggle {
+		padding: 7px 11px;
+		font-size: 1.1rem;
+	}
+}
+
+@media (max-width: 420px) {
+	nav .nav-container {
+		width: 96%;
+		padding: 12px 8px;
+		flex-wrap: nowrap;
+	}
+
+	nav .item {
+		gap: 10px;
+	}
+
+	nav .item a {
+		font-size: 0.9rem;
+	}
+
+	nav .item .theme-toggle {
+		padding: 6px 9px;
+		font-size: 1rem;
 	}
 }
 </style>

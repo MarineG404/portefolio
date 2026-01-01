@@ -30,7 +30,9 @@ const items = [
 	gap: 20px;
 	display: flex;
 	flex-direction: column;
-	padding: 12px 20px 40px;
+	padding: 20px 20px 40px;
+	max-width: 100%;
+	box-sizing: border-box;
 }
 
 </style>
