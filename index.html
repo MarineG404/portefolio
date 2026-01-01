@@ -1,116 +1,17 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
+
 <head>
 	<meta charset="UTF-8">
+	<link rel="icon" href="/favicon.ico" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="styles.css">
 	<link href="https://cdn.jsdelivr.net/npm/remixicon@4.8.0/fonts/remixicon.css" rel="stylesheet">
-	<title>Portfolio – Marine Gonnord</title>
+	<title>Portfolio Marine Gonnord</title>
 </head>
 
 <body>
-	<nav>
-		<div class="nav-container">
-			<div class="main">
-				<a href="#"><h1>Marine Gonnord</h1></a>
-			</div>
-
-			<div class="item">
-				<a href="#projects">Projets</a>
-				<a href="#about">À propos</a>
-				<a href="#contact">Contact</a>
-				<button class="theme-toggle" id="theme-toggle" aria-label="Changer de thème">
-					<i class="ri-sun-line"></i>
-				</button>
-			</div>
-		</div>
-	</nav>
-
-	<div class="page-container">
-
-		<article class="presentation">
-			<div class="text">
-				<h2>Marine Gonnord</h2>
-				<p>Je suis développeuse web en formation, actuellement en recherche de stage.</p>
-				<button><a href="#contact"><i class="ri-mail-line"></i>Me contacter</a></button>
-			</div>
-			<img src="./img/avatar.png" alt="Photo de Marine Gonnord" />
-		</article>
-
-		<section id="projects" class="projects">
-            <h2>Projets</h2>
-            <p>Voici quelques-uns de mes projets récents</p>
-
-            <div class="carousel-wrapper">
-                <div class="carousel" id="carousel">
-
-                    <div class="carousel-item">
-                        <h3>Générateur de QR code</h3>
-                        <p>
-							Ayant eu marre des outils en ligne remplis de publicités, j'ai créé mon propre générateur de QR code simple et efficace.
-						</p>
-						<button>
-							<a href="https://qrcode.marinegonnord.fr" target="_blank" rel="noopener noreferrer">
-								<i class="ri-link"></i>Visiter le site
-							</a>
-						</button>
-                    </div>
-
-                    <div class="carousel-item">
-                        <h3>Fokuz</h3>
-                        <p>
-							Cherchant un sujet pour mon projet de cours de react native, j'ai décidé de créer une application de gestion de tâches simple et épurée.
-						</p>
-						<button>
-							<a href="https://github.com/MarineG404/Fokuz" target="_blank" rel="noopener noreferrer">
-								<i class="ri-github-fill"></i>Visiter le projet
-							</a>
-						</button>
-                    </div>
-					<div class="carousel-item">
-						<h3>Serveur et nom de domaine</h3>
-						<p>
-							Pour acquérir de l'autonomie, j'ai mis en place mon propre serveur et nom de domaine qui hébergent ce portfolio, le générateur de QR code et mon CV.
-						</p>
-						<button>
-							<a href="https://cv.marinegonnord.fr" target="_blank" rel="noopener noreferrer">
-								<i class="ri-file-text-line"></i>Voir mon CV
-							</a>
-						</button>
-					</div>
-                </div>
-            </div>
-			<div class="controls">
-    		    <button id="prev" aria-label="Projet précédent"><i class="ri-arrow-left-line"></i></button>
-            	<button id="next" aria-label="Projet suivant"><i class="ri-arrow-right-line"></i></button>
-			</div>
-        </section>
-
-		<section id="about" class="about">
-			<h2>À propos de moi</h2>
-			<p> 
-				Languages et technologies que j'ai pu utiliser jusqu'à présent
-			</p>
-			
-			<img src="https://urskill.erickpaoletti.fr?icons=javascript,typescript,npm,,,vscode,visualstudio,pycharm,,,linux,debian,ubuntu,html,bootstrap,css,,,github,gitlab,git,,,windows,arduino,raspberrypi,python,php,cs,cpp,,docker,mysql,postman,,,,,,symfony,django,angular,react,,,&max_per_row=13&background_color=2E2E2E" />
-		</section>
-
-		<section id="contact" class="contact">
-			<h2>Contactez-moi</h2>
-			<p>Vous pouvez me contacter via les réseaux sociaux ou par email :</p>
-			<div class="contact-links">
-				<a href="https://github.com/marineG404"><i class="ri-github-line"></i></a>
-				<a href="https://www.linkedin.com/in/marine-gonnord-7a1517234/"><i class="ri-linkedin-line"></i></a>
-				<a href="mailto:marine.gonnord.pro@gmail.com"><i class="ri-mail-line"></i></a>
-			</div>
-		</section>
-				
-		
-
-	</div>
-
-	<script src="./js/script.js"></script>
-	<script src="./js/carousel.js"></script>
-	<script src="./js/toggle.js"></script>
+	<div id="app"></div>
+	<script type="module" src="/src/main.js"></script>
 </body>
+
 </html>

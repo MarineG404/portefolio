@@ -1,0 +1,88 @@
+:root {
+	--bg-main: #1a1414;
+	--bg-nav: #252323cc;
+	--bg-card: #252b2b;
+
+	--text-main: #efdfc5;
+	--text-secondary: #b8a890;
+
+	--accent: #8f0b13;
+	--accent-hover: #b91a23;
+
+	--text-button: #efdfc5;
+
+	--font-size: 1.2rem;
+	--font-size-large: 2rem;
+}
+
+[data-theme="light"] {
+	--bg-main: #f5f0e8;
+	--bg-nav: #fffaf5cc;
+	--bg-card: #ffffff;
+
+	--text-main: #252b2b;
+	--text-secondary: #4c4f54;
+
+	--accent: #8f0b13;
+	--accent-hover: #6a0a0e;
+
+	--text-button: #ffffff;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: var(--text-main);
+	font-family: 'Fira Code', 'JetBrains Mono', monospace;
+	margin: 0;
+	padding: 0;
+	font-size: var(--font-size);
+	background-color: var(--bg-main);
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+h1,
+h2 {
+	margin: 0;
+}
+
+
+#app {
+	margin: 0;
+	padding: 0;
+}
+
+button {
+	margin: 0 auto;
+	padding: 10px 30px;
+	background-color: var(--accent);
+	color: var(--text-button);
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
+	font-size: var(--font-size);
+	width: fit-content;
+	transition: background-color 0.3s;
+
+	&:hover {
+		background-color: var(--accent-hover);
+	}
+
+	i {
+		margin-right: 10px;
+	}
+}
