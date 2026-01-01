@@ -12,10 +12,10 @@
 </template>
 
 <script setup>
-import Presentation from './Presentation.vue'
-import ProjectsSection from './ProjectsSection.vue'
-import AboutSection from './AboutSection.vue'
-import ContactSection from './ContactSection.vue'
+import Presentation from '../components/main/Presentation.vue'
+import ProjectsSection from '../components/main/ProjectsSection.vue'
+import AboutSection from '../components/main/AboutSection.vue'
+import ContactSection from '../components/main/ContactSection.vue'
 </script>
 
 <style scoped>

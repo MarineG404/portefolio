@@ -5,7 +5,7 @@
       <p>Je suis développeuse web en formation, actuellement en recherche de stage.</p>
       <button><a href="#contact"><i class="ri-mail-line"></i>Me contacter</a></button>
     </div>
-    <img src="../assets/avatar.svg" alt="Photo de Marine Gonnord" />
+	<img src="../../assets/avatar.svg" alt="Photo de Marine Gonnord" />
   </article>
 </template>
 
@@ -19,8 +19,8 @@
 	grid-template-columns: 3fr 1fr;
 	gap: 20px;
 	align-items: center;
-	width: 100%;
-	min-height: 90vh;
+	width: 90%;
+	min-height: 80vh;
 
 	.text {
 		display: flex;
