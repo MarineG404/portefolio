@@ -22,6 +22,7 @@
 	max-width: 100%;
 	min-height: 80vh;
 	overflow: hidden;
+	align-items: center;
 
 	.text {
 		display: flex;
