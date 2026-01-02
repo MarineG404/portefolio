@@ -11,6 +11,18 @@
 
 	--text-button: #efdfc5;
 
+
+	/* Graph - Mode sombre */
+	--color-group-1: #D94946;
+	--color-group-1-hover: #B63C3A;
+	--color-group-1-text: #ffffff;
+	--color-group-2: #4A8FD9;
+	--color-group-2-hover: #3A7BB6;
+	--color-group-2-text: #ffffff;
+	--color-group-3: #4AD97D;
+	--color-group-3-hover: #3AB66A;
+	--color-group-3-text: #1a1414;
+
 	--font-size: 1.2rem;
 	--font-size-large: 2rem;
 }
@@ -27,6 +39,17 @@
 	--accent-hover: #6a0a0e;
 
 	--text-button: #ffffff;
+
+	/* Graph - Mode clair */
+	--color-group-1: #B63C3A;
+	--color-group-1-hover: #933031;
+	--color-group-1-text: #ffffff;
+	--color-group-2: #2E6699;
+	--color-group-2-hover: #234D73;
+	--color-group-2-text: #ffffff;
+	--color-group-3: #2E9954;
+	--color-group-3-hover: #257A44;
+	--color-group-3-text: #ffffff;
 }
 
 @media (max-width: 1024px) {

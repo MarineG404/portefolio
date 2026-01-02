@@ -1,355 +1,166 @@
 <template>
-  <section class="timeline">
-    <div class="ruler">
-      <span class="ruler-label">{{ minYear }}</span>
-      <span
-        v-for="year in intermediateYears"
-        :key="year"
-        class="ruler-label intermediate"
-        :style="{ left: getYearPosition(year) + '%' }"
-      >
-        {{ year }}
-      </span>
-      <span class="ruler-label">{{ maxYear }}</span>
-    </div>
-
-    <div class="tracks">
-      <div class="track">
-        <div class="track-label">Solfège</div>
-        <div class="track-bars">
-          <div
-            v-for="(it, idx) in solfegeItems"
-            :key="idx"
-            class="bar solfege"
-            :style="{
-              left: it.left + '%',
-              width: it.width + '%',
-              top: (7 + it.row * 44) + 'px'
-            }"
-          >
-            <div class="bar-content">{{ extractShortTitle(it.title) }}</div>
-            <div class="bar-tooltip">
-              <div class="tooltip-title">{{ it.title }}</div>
-              <div class="tooltip-date">{{ it.date }}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="track">
-        <div class="track-label">Instrument</div>
-        <div class="track-bars">
-          <div
-            v-for="(it, idx) in instrumentItems"
-            :key="idx"
-            class="bar instrument"
-            :style="{
-              left: it.left + '%',
-              width: it.width + '%',
-              top: (7 + it.row * 44) + 'px'
-            }"
-          >
-            <div class="bar-content">{{ extractShortTitle(it.title) }}</div>
-            <div class="bar-tooltip">
-              <div class="tooltip-title">{{ it.title }}</div>
-              <div class="tooltip-date">{{ it.date }}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="track">
-        <div class="track-label">Groupe</div>
-        <div class="track-bars">
-          <div
-            v-for="(it, idx) in groupeItems"
-            :key="idx"
-            class="bar groupe"
-            :style="{
-              left: it.left + '%',
-              width: it.width + '%',
-              top: (7 + it.row * 44) + 'px'
-            }"
-          >
-            <div class="bar-content">{{ extractShortTitle(it.title) }}</div>
-            <div class="bar-tooltip">
-              <div class="tooltip-title">{{ it.title }}</div>
-              <div class="tooltip-date">{{ it.date }}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+	<div ref="timelineRef" style="width: 100%"></div>
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { onMounted, ref } from 'vue'
+import { Timeline } from 'vis-timeline/standalone'
+import 'vis-timeline/styles/vis-timeline-graph2d.min.css'
 
-const props = defineProps({ items: { type: Array, required: true } })
+const groups = [
+	{id : 1, content: 'Solfège'},
+	{id : 2, content: 'Instruments'},
+	{id : 3, content: 'Ensembles'},
+]
 
-const currentYear = new Date().getFullYear()
+const items = [
+	{id : 1, group : 1, content: 'Éveil musical — Immal de Lyon', start : '2007-09-01', end : '2010-06-30', className: 'group-1', title: 'Éveil musical — Immal de Lyon'},
+	{id : 2, group : 1, content: 'Formation Musicale — Immal de Lyon', start : '2010-09-01', end : '2015-06-30', className: 'group-1', title: 'Formation Musicale — Immal de Lyon'},
+	{id : 3, group : 2, content: 'Apprentissage de la flûte traversière — Valérie Wojciechowski', start : '2011-09-01', end : '2015-06-30', className: 'group-2', title: 'Apprentissage de la flûte traversière — Valérie Wojciechowski'},
+	{id : 4, group : 1, content: 'Formation Musicale — ENM de Villeurbanne', start : '2015-09-01', end : '2017-06-30', className: 'group-1', title: 'Formation Musicale — ENM de Villeurbanne'},
+	{id : 5, group : 3, content: 'Orchestre (EMI) — ENM de Villeurbanne', start : '2015-09-01', end : '2020-06-30', className: 'group-3', title: 'Orchestre (EMI) — ENM de Villeurbanne'},
+	{id : 6, group : 3, content: 'Candell Harmonie — Lyon 8', start : '2016-09-01', end : '2019-09-30', className: 'group-3', title: 'Candell Harmonie — Lyon 8'},
+	{id : 7, group : 2, content: 'Apprentissage flûte traversière — ENM de Villeurbanne', start : '2015-09-01', end: new Date(), className: 'group-2', title: 'Apprentissage flûte traversière — ENM de Villeurbanne'},
+	{id : 8, group : 3, content: 'Harmonie de Brignais — Brignais', start : '2019-09-01', end: new Date(), className: 'group-3', title: 'Harmonie de Brignais — Brignais'},
+	{id : 9, group : 3, content: 'Harmonie ENM — ENM de Villeurbanne', start : '2020-09-01', end : '2021-03-31', className: 'group-3', title: 'Harmonie ENM — ENM de Villeurbanne'},
+	{id : 10, group : 3, content: 'Binioufous', start : '2020-09-01', end: new Date(), className: 'group-3', title: 'Binioufous'},
+]
 
-function parseYears(dateStr) {
-  const matches = Array.from(String(dateStr).matchAll(/(\d{2})-(\d{4})/g))
+const timelineRef = ref(null)
 
-  if (matches.length >= 2) {
-    const startMonth = parseInt(matches[0][1], 10)
-    const startYear = parseInt(matches[0][2], 10)
-    const endMonth = parseInt(matches[1][1], 10)
-    const endYear = parseInt(matches[1][2], 10)
-
-    const start = startYear + (startMonth - 1) / 12
-    const end = endYear + (endMonth - 1) / 12
-
-    return { start, end }
-  }
-
-  if (matches.length === 1) {
-    const year = parseInt(matches[0][2], 10)
-    const month = parseInt(matches[0][1], 10)
-    const decimal = year + (month - 1) / 12
-    return { start: decimal, end: decimal }
-  }
-
-  return { start: currentYear, end: currentYear }
-}
-
-const parsedItems = computed(() => {
-  const raw = (props.items || []).map((it) => {
-    const { start, end } = parseYears(it.date)
-    return { ...it, start, end }
-  })
-
-  if (raw.length === 0) return []
-
-  const min = Math.min(...raw.map(r => r.start))
-  const max = Math.max(...raw.map(r => r.end))
-  const span = max - min
-
-  const sorted = raw.sort((a, b) => a.start - b.start)
-
-  const itemsWithPositions = []
-  const typeRows = { solfege: [], instrument: [], groupe: [] }
-
-  sorted.forEach((r) => {
-    const left = ((r.start - min) / span) * 100
-    const width = ((r.end - r.start) / span) * 100
-
-    const rows = typeRows[r.type]
-    let rowIndex = 0
-
-    // Chercher une ligne où cet élément peut s'insérer sans chevauchement
-    for (let i = 0; i < rows.length; i++) {
-      if (left >= rows[i] + 0.5) { // +0.5 pour un petit espace entre les barres
-        rowIndex = i
-        break
-      }
-      rowIndex = i + 1
-    }
-
-    if (rowIndex >= rows.length) {
-      rows.push(0)
-    }
-
-    rows[rowIndex] = left + width
-
-    itemsWithPositions.push({
-      ...r,
-      left,
-      width,
-      row: rowIndex
-    })
-  })
-
-  return itemsWithPositions
+onMounted(() => {
+	const container = timelineRef.value
+	const options = {
+		start: new Date('2007-08-01'),
+		end: new Date(),
+		stack: true,
+		editable: false,
+		orientation: 'top',
+		margin: {
+			item: 10,
+			axis: 5,
+		},
+		tooltip: {
+			followMouse: true,
+			overflowMethod: 'cap'
+		}
+	}
+	new Timeline(container, items, groups, options)
 })
-
-function extractShortTitle(title) {
-  const parts = title.split('—')
-  return parts[0].trim()
-}
-
-const solfegeItems = computed(() => parsedItems.value.filter(it => it.type === 'solfege'))
-const instrumentItems = computed(() => parsedItems.value.filter(it => it.type === 'instrument'))
-const groupeItems = computed(() => parsedItems.value.filter(it => it.type === 'groupe'))
-
-const minYear = computed(() => {
-  if (!parsedItems.value.length) return 2007
-  return Math.floor(Math.min(...parsedItems.value.map(r => r.start)))
-})
-
-const maxYear = computed(() => {
-  if (!parsedItems.value.length) return currentYear
-  return Math.ceil(Math.max(...parsedItems.value.map(r => r.end)))
-})
-
-const intermediateYears = computed(() => {
-  const min = minYear.value
-  const max = maxYear.value
-  const span = max - min
-  const years = []
-
-  // Ajouter des repères tous les 3-5 ans selon l'étendue
-  const step = span > 15 ? 5 : 3
-
-  for (let year = min + step; year < max; year += step) {
-    years.push(year)
-  }
-
-  return years
-})
-
-function getYearPosition(year) {
-  const min = minYear.value
-  const max = maxYear.value
-  const span = max - min
-  return ((year - min) / span) * 100
-}
 </script>
 
 <style scoped>
-.timeline {
-  position: relative;
-  padding: 12px 8px 24px;
+	/* Left text */
+	:deep(.vis-labelset .vis-label) {
+		color: var(--text-main);
+		text-align: center;
+		border: none !important;
+		border-top: none !important;
+		border-bottom: none !important;
+		border-left: none !important;
+		border-right: none !important;
+	}
 
-  .ruler {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    margin-bottom: 16px;
-    padding: 0 120px 0 0;
-    position: relative;
+	/* Axis text */
+	:deep(.vis-time-axis .vis-text) {
+		color: var(--text-main);
+	}
 
-    .ruler-label {
-      font-weight: 600;
+	/* Timeline background */
+	:deep(.vis-panel.vis-background) {
+		background-color: transparent;
+	}
 
-      &.intermediate {
-        position: absolute;
-        transform: translateX(-50%);
-        font-weight: 500;
-        opacity: 0.7;
-      }
-    }
-  }
+	:deep(.vis-panel.vis-center) {
+		background-color: transparent;
+	}
 
-  .tracks {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
+	/* Remove ALL grids and borders */
+	:deep(.vis-grid),
+	:deep(.vis-grid.vis-vertical),
+	:deep(.vis-grid.vis-horizontal),
+	:deep(.vis-grid.vis-minor),
+	:deep(.vis-grid.vis-major) {
+		border: none !important;
+		border-width: 0 !important;
+	}
 
-    .track {
-      display: flex;
-      align-items: stretch;
-      gap: 12px;
-      min-height: 50px;
+	/* Remove all container borders */
+	:deep(.vis-timeline),
+	:deep(.vis-panel),
+	:deep(.vis-panel.vis-left),
+	:deep(.vis-panel.vis-right),
+	:deep(.vis-panel.vis-top),
+	:deep(.vis-panel.vis-bottom),
+	:deep(.vis-labelset),
+	:deep(.vis-foreground),
+	:deep(.vis-content),
+	:deep(.vis-itemset) {
+		border: none !important;
+		border-width: 0 !important;
+	}
 
-      .track-label {
-        width: 100px;
-        flex-shrink: 0;
-        font-size: 0.95rem;
-        font-weight: 600;
-        color: var(--text-secondary);
-        display: flex;
-        align-items: center;
-      }
+	/* Remove borders between groups */
+	:deep(.vis-label),
+	:deep(.vis-inner) {
+		border: none !important;
+		border-top: none !important;
+		border-bottom: none !important;
+	}
 
-      .track-bars {
-        position: relative;
-        flex: 1;
-        min-height: 50px;
-        border-left: 2px solid rgba(255, 255, 255, 0.1);
+	/* Remove group borders in foreground */
+	:deep(.vis-foreground .vis-group) {
+		border: none !important;
+		border-bottom: none !important;
+		border-top: none !important;
+		box-sizing: border-box;
+	}
 
-        .bar {
-          position: absolute;
-          height: 36px;
-          border-radius: 6px;
-          padding: 0 12px;
-          color: var(--text-button);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          box-sizing: border-box;
-          opacity: 0.92;
-          transition: all 0.25s ease;
+	/* Items - rounded borders without border */
+	:deep(.vis-item),
+	:deep(.vis-item.vis-point),
+	:deep(.vis-item.vis-range) {
+		border-radius: 12px;
+		border: none !important;
+		transition: all 0.2s ease;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+	}
 
-          &:hover {
-            opacity: 1;
-            transform: translateY(-3px);
-            z-index: 10;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+	:deep(.vis-item:hover) {
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+	}
 
-            .bar-tooltip {
-              opacity: 1;
-              visibility: visible;
-              transform: translateY(-8px);
-            }
-          }
+	:deep(.vis-item .vis-item-content) {
+		padding: 10px 16px;
+		font-weight: 500;
+	}
 
-          .bar-content {
-            font-size: 0.85rem;
-            font-weight: 500;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-          }
+	/* Colors - softer and saturated tones */
+	:deep(.group-1) {
+		background-color: var(--color-group-1);
+		color: var(--color-group-1-text);
+	}
 
-          .bar-tooltip {
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%) translateY(0);
-            background: rgba(20, 20, 25, 0.98);
-            padding: 12px 16px;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.25s ease;
-            white-space: nowrap;
-            z-index: 100;
-            pointer-events: none;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+	:deep(.group-1:hover) {
+		background-color: var(--color-group-1-hover);
+	}
 
-            &::after {
-              content: '';
-              position: absolute;
-              top: 100%;
-              left: 50%;
-              transform: translateX(-50%);
-              border: 6px solid transparent;
-              border-top-color: rgba(20, 20, 25, 0.98);
-            }
+	:deep(.group-2) {
+		background-color: var(--color-group-2);
+		color: var(--color-group-2-text);
+	}
 
-            .tooltip-title {
-              font-weight: 600;
-              font-size: 0.95rem;
-              margin-bottom: 4px;
-              color: #fff;
-            }
+	:deep(.group-2:hover) {
+		background-color: var(--color-group-2-hover);
+	}
 
-            .tooltip-date {
-              font-size: 0.85rem;
-              color: rgba(255, 255, 255, 0.7);
-            }
-          }
+	:deep(.group-3) {
+		background-color: var(--color-group-3);
+		color: var(--color-group-3-text);
+	}
 
-          &.solfege {
-            background: linear-gradient(90deg, var(--accent), #b91a23);
-          }
-
-          &.instrument {
-            background: linear-gradient(90deg, #6a8fbf, #466b9a);
-          }
-
-          &.groupe {
-            background: linear-gradient(90deg, #8fbf6a, #5a9a3f);
-          }
-        }
-      }
-    }
-  }
-}
+	:deep(.group-3:hover) {
+		background-color: var(--color-group-3-hover);
+	}
 </style>
