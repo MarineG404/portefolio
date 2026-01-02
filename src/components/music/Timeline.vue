@@ -33,8 +33,8 @@ const timelineRef = ref(null)
 onMounted(() => {
 	const container = timelineRef.value
 	const options = {
-		start: new Date('2007-05-01'),
-		end: new Date(),
+		start: new Date('2006-05-01'),
+		end: new Date(new Date().setFullYear(new Date().getFullYear() + 2)),
 		stack: true,
 		editable: false,
 		orientation: 'top',
@@ -61,7 +61,7 @@ onMounted(() => {
 
 .timeline-music-wrapper {
 
-	/* Labels à gauche */
+	/* Left labels */
 	.vis-labelset .vis-label {
 		color: var(--text-main);
 		font-weight: 600;
@@ -77,7 +77,7 @@ onMounted(() => {
 		margin-left: 10px;
 	}
 
-	/* Suppression des bordures des conteneurs */
+	/* Remove container borders */
 	.vis-timeline,
 	.vis-panel,
 	.vis-content,
