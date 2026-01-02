@@ -64,8 +64,11 @@ onMounted(() => {
 	/* Labels à gauche */
 	.vis-labelset .vis-label {
 		color: var(--text-main);
-		text-align: center;
-		border: none !important;
+		font-weight: 600;
+		display: flex;
+		align-items: center;
+		border-bottom: 1px solid #ffffff3f !important;
+
 	}
 
 	.vis-time-axis .vis-text {
@@ -84,8 +87,7 @@ onMounted(() => {
 	}
 
 	.vis-foreground .vis-group {
-		border-bottom: none !important;
-		border-top: none !important;
+		border-bottom: 1px solid #ffffff3f !important;
 		box-sizing: border-box;
 	}
 
