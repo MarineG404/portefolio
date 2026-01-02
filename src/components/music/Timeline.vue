@@ -34,7 +34,7 @@ onMounted(() => {
 	const container = timelineRef.value
 	const options = {
 		start: new Date('2007-05-01'),
-		end: new Date('2028-06-30'),
+		end: new Date(),
 		stack: true,
 		editable: false,
 		orientation: 'top',
@@ -89,6 +89,12 @@ onMounted(() => {
 	.vis-foreground .vis-group {
 		border-bottom: 1px solid #ffffff3f !important;
 		box-sizing: border-box;
+	}
+
+	.vis-grid {
+		&.vis-vertical {
+			border-color: #ffffff3f !important;
+		}
 	}
 
 	.vis-item {
