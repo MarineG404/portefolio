@@ -33,8 +33,8 @@ const timelineRef = ref(null)
 onMounted(() => {
 	const container = timelineRef.value
 	const options = {
-		start: new Date('2007-08-01'),
-		end: new Date(),
+		start: new Date('2007-05-01'),
+		end: new Date('2028-06-30'),
 		stack: true,
 		editable: false,
 		orientation: 'top',
@@ -70,60 +70,20 @@ onMounted(() => {
 
 	.vis-time-axis .vis-text {
 		color: var(--text-main);
-	}
-
-	/* Backgrounds transparents */
-	.vis-panel {
-		&.vis-background,
-		&.vis-center {
-			background-color: transparent;
-		}
-	}
-
-	/* Suppression de toutes les grilles */
-	.vis-grid {
-		border: none !important;
-		border-width: 0 !important;
-
-		&.vis-vertical,
-		&.vis-horizontal,
-		&.vis-minor,
-		&.vis-major {
-			border: none !important;
-			border-width: 0 !important;
-		}
+		font-weight: 600;
+		margin-left: 10px;
 	}
 
 	/* Suppression des bordures des conteneurs */
 	.vis-timeline,
 	.vis-panel,
-	.vis-labelset,
-	.vis-foreground,
 	.vis-content,
 	.vis-itemset {
 		border: none !important;
 		border-width: 0 !important;
 	}
 
-	.vis-panel {
-		&.vis-left,
-		&.vis-right,
-		&.vis-top,
-		&.vis-bottom {
-			border: none !important;
-			border-width: 0 !important;
-		}
-	}
-
-	.vis-label,
-	.vis-inner {
-		border: none !important;
-		border-top: none !important;
-		border-bottom: none !important;
-	}
-
 	.vis-foreground .vis-group {
-		border: none !important;
 		border-bottom: none !important;
 		border-top: none !important;
 		box-sizing: border-box;
