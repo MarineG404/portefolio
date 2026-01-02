@@ -1,5 +1,7 @@
 <template>
-	<div ref="timelineRef" style="width: 100%"></div>
+	<div class="timeline-music-wrapper">
+		<div ref="timelineRef" style="width: 100%"></div>
+	</div>
 </template>
 
 <script setup>
@@ -50,117 +52,131 @@ onMounted(() => {
 </script>
 
 <style scoped>
-	/* Left text */
-	:deep(.vis-labelset .vis-label) {
+	.timeline-music-wrapper {
+		width: 100%;
+	}
+</style>
+
+<style>
+
+.timeline-music-wrapper {
+
+	/* Labels à gauche */
+	.vis-labelset .vis-label {
 		color: var(--text-main);
 		text-align: center;
 		border: none !important;
-		border-top: none !important;
-		border-bottom: none !important;
-		border-left: none !important;
-		border-right: none !important;
 	}
 
-	/* Axis text */
-	:deep(.vis-time-axis .vis-text) {
+	.vis-time-axis .vis-text {
 		color: var(--text-main);
 	}
 
-	/* Timeline background */
-	:deep(.vis-panel.vis-background) {
-		background-color: transparent;
+	/* Backgrounds transparents */
+	.vis-panel {
+		&.vis-background,
+		&.vis-center {
+			background-color: transparent;
+		}
 	}
 
-	:deep(.vis-panel.vis-center) {
-		background-color: transparent;
+	/* Suppression de toutes les grilles */
+	.vis-grid {
+		border: none !important;
+		border-width: 0 !important;
+
+		&.vis-vertical,
+		&.vis-horizontal,
+		&.vis-minor,
+		&.vis-major {
+			border: none !important;
+			border-width: 0 !important;
+		}
 	}
 
-	/* Remove ALL grids and borders */
-	:deep(.vis-grid),
-	:deep(.vis-grid.vis-vertical),
-	:deep(.vis-grid.vis-horizontal),
-	:deep(.vis-grid.vis-minor),
-	:deep(.vis-grid.vis-major) {
+	/* Suppression des bordures des conteneurs */
+	.vis-timeline,
+	.vis-panel,
+	.vis-labelset,
+	.vis-foreground,
+	.vis-content,
+	.vis-itemset {
 		border: none !important;
 		border-width: 0 !important;
 	}
 
-	/* Remove all container borders */
-	:deep(.vis-timeline),
-	:deep(.vis-panel),
-	:deep(.vis-panel.vis-left),
-	:deep(.vis-panel.vis-right),
-	:deep(.vis-panel.vis-top),
-	:deep(.vis-panel.vis-bottom),
-	:deep(.vis-labelset),
-	:deep(.vis-foreground),
-	:deep(.vis-content),
-	:deep(.vis-itemset) {
-		border: none !important;
-		border-width: 0 !important;
+	.vis-panel {
+		&.vis-left,
+		&.vis-right,
+		&.vis-top,
+		&.vis-bottom {
+			border: none !important;
+			border-width: 0 !important;
+		}
 	}
 
-	/* Remove borders between groups */
-	:deep(.vis-label),
-	:deep(.vis-inner) {
+	.vis-label,
+	.vis-inner {
 		border: none !important;
 		border-top: none !important;
 		border-bottom: none !important;
 	}
 
-	/* Remove group borders in foreground */
-	:deep(.vis-foreground .vis-group) {
+	.vis-foreground .vis-group {
 		border: none !important;
 		border-bottom: none !important;
 		border-top: none !important;
 		box-sizing: border-box;
 	}
 
-	/* Items - rounded borders without border */
-	:deep(.vis-item),
-	:deep(.vis-item.vis-point),
-	:deep(.vis-item.vis-range) {
+	.vis-item {
 		border-radius: 12px;
 		border: none !important;
 		transition: all 0.2s ease;
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+		&.vis-point,
+		&.vis-range {
+			border-radius: 12px;
+			border: none !important;
+		}
+
+		&:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+		}
+
+		.vis-item-content {
+			padding: 10px 16px;
+			font-weight: 500;
+		}
 	}
 
-	:deep(.vis-item:hover) {
-		transform: translateY(-2px);
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-	}
-
-	:deep(.vis-item .vis-item-content) {
-		padding: 10px 16px;
-		font-weight: 500;
-	}
-
-	/* Colors - softer and saturated tones */
-	:deep(.group-1) {
+	.group-1 {
 		background-color: var(--color-group-1);
 		color: var(--color-group-1-text);
+
+		&:hover {
+			background-color: var(--color-group-1-hover);
+		}
 	}
 
-	:deep(.group-1:hover) {
-		background-color: var(--color-group-1-hover);
-	}
-
-	:deep(.group-2) {
+	.group-2 {
 		background-color: var(--color-group-2);
 		color: var(--color-group-2-text);
+
+		&:hover {
+			background-color: var(--color-group-2-hover);
+		}
 	}
 
-	:deep(.group-2:hover) {
-		background-color: var(--color-group-2-hover);
-	}
-
-	:deep(.group-3) {
+	.group-3 {
 		background-color: var(--color-group-3);
 		color: var(--color-group-3-text);
-	}
 
-	:deep(.group-3:hover) {
-		background-color: var(--color-group-3-hover);
+		&:hover {
+			background-color: var(--color-group-3-hover);
+		}
 	}
+}
 </style>
