@@ -26,6 +26,7 @@ const items = [
 	{id : 8, group : 3, content: 'Harmonie de Brignais — Brignais', start : '2019-09-01', end: new Date(), className: 'group-3', title: 'Harmonie de Brignais — Brignais'},
 	{id : 9, group : 3, content: 'Harmonie ENM — ENM de Villeurbanne', start : '2020-09-01', end : '2021-03-31', className: 'group-3', title: 'Harmonie ENM — ENM de Villeurbanne'},
 	{id : 10, group : 3, content: 'Binioufous', start : '2020-09-01', end: new Date(), className: 'group-3', title: 'Binioufous'},
+	{id: 11, group: 1, content: 'demontage de tel', start: '2006-05-01', end: '2006-05-02', className: 'group-1', title: 'demontage de tel'},
 ]
 
 const timelineRef = ref(null)
