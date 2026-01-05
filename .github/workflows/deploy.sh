@@ -5,7 +5,7 @@ echo "Starting deployment to production server..."
 BUILD_DIR=dist
 REMOTE_USER=$REMOTE_USER
 REMOTE_HOST=$REMOTE_HOST
-REMOTE_PATH=/var/www/portfolio
+REMOTE_PATH=/var/www/portefolio
 
 if [ ! -d "$BUILD_DIR" ]; then
   echo "❌ The build directory '$BUILD_DIR' does not exist. Please build the project before deploying."
