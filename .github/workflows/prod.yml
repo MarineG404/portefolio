@@ -5,12 +5,15 @@ on:
     branches: [prod]
 
 jobs:
-  deploy:
+  checkout:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
+  node:
+    runs-on: ubuntu-latest
+    needs: checkout
+    steps:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -22,6 +25,10 @@ jobs:
       - name: Build
         run: npm run build
 
+  ssh:
+    runs-on: ubuntu-latest
+    needs: node
+    steps:
       - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
@@ -29,7 +36,11 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H "${{ secrets.REMOTE_HOST }}" >> ~/.ssh/known_hosts
 
-      - name: Deploy
+  deploy:
+    needs: ssh
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Production Server
         env:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
