@@ -13,10 +13,6 @@ if [ ! -d "$BUILD_DIR" ]; then
 fi
 
 echo "📦 Sending files to the VPS..."
-
-echo "🔧 Ensuring remote directory exists and ownership is correct..."
-ssh ${REMOTE_USER}@${REMOTE_HOST} "sudo mkdir -p ${REMOTE_PATH} && sudo chown -R ${REMOTE_USER}:${REMOTE_USER} ${REMOTE_PATH}"
-
 rsync -avz --delete \
   --chmod=Du=rwx,Dgo=rx,Fu=rw,Fgo=r \
   $BUILD_DIR/ \
