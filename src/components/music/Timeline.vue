@@ -8,6 +8,7 @@
 import { onMounted, ref } from 'vue'
 import { Timeline } from 'vis-timeline/standalone'
 import 'vis-timeline/styles/vis-timeline-graph2d.min.css'
+import itemsData from '../../assets/timeline-items.json'
 
 const groups = [
 	{id : 1, content: 'Solfège'},
@@ -15,19 +16,11 @@ const groups = [
 	{id : 3, content: 'Ensembles'},
 ]
 
-const items = [
-	{id : 1, group : 1, content: 'Éveil musical — Immal de Lyon', start : '2007-09-01', end : '2010-06-30', className: 'group-1', title: 'Éveil musical — Immal de Lyon'},
-	{id : 2, group : 1, content: 'Formation Musicale — Immal de Lyon', start : '2010-09-01', end : '2015-06-30', className: 'group-1', title: 'Formation Musicale — Immal de Lyon'},
-	{id : 3, group : 2, content: 'Apprentissage de la flûte traversière — Valérie Wojciechowski', start : '2011-09-01', end : '2015-06-30', className: 'group-2', title: 'Apprentissage de la flûte traversière — Valérie Wojciechowski'},
-	{id : 4, group : 1, content: 'Formation Musicale — ENM de Villeurbanne', start : '2015-09-01', end : '2017-06-30', className: 'group-1', title: 'Formation Musicale — ENM de Villeurbanne'},
-	{id : 5, group : 3, content: 'Orchestre (EMI) — ENM de Villeurbanne', start : '2015-09-01', end : '2020-06-30', className: 'group-3', title: 'Orchestre (EMI) — ENM de Villeurbanne'},
-	{id : 6, group : 3, content: 'Candell Harmonie — Lyon 8', start : '2016-09-01', end : '2019-09-30', className: 'group-3', title: 'Candell Harmonie — Lyon 8'},
-	{id : 7, group : 2, content: 'Apprentissage flûte traversière — ENM de Villeurbanne', start : '2015-09-01', end: new Date(), className: 'group-2', title: 'Apprentissage flûte traversière — ENM de Villeurbanne'},
-	{id : 8, group : 3, content: 'Harmonie de Brignais — Brignais', start : '2019-09-01', end: new Date(), className: 'group-3', title: 'Harmonie de Brignais — Brignais'},
-	{id : 9, group : 3, content: 'Harmonie ENM — ENM de Villeurbanne', start : '2020-09-01', end : '2021-03-31', className: 'group-3', title: 'Harmonie ENM — ENM de Villeurbanne'},
-	{id : 10, group : 3, content: 'Binioufous', start : '2020-09-01', end: new Date(), className: 'group-3', title: 'Binioufous'},
-	{id: 11, group: 1, content: 'demontage de tel', start: '2006-05-01', end: '2006-05-02', className: 'group-1', title: 'demontage de tel'},
-]
+const items = itemsData.map((it) => {
+	const item = { ...it }
+	if (item.end === 'now') item.end = new Date()
+	return item
+})
 
 const timelineRef = ref(null)
 
