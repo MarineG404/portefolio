@@ -53,6 +53,32 @@ onMounted(() => {
 
 <style>
 
+/* Disable mobile/desktop tap highlight and text selection on timeline items */
+.vis-item,
+.vis-item *,
+.vis-timeline {
+  -webkit-tap-highlight-color: transparent;
+  -moz-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline: none !important;
+}
+
+/* Remove any selected/active styling coming from the library */
+.vis-item.vis-selected,
+.vis-item:active,
+.vis-item:focus,
+.vis-point.vis-selected,
+.vis-range.vis-selected,
+.vis-selection {
+  background: transparent !important;
+  background-color: #ffffff3f !important;
+  box-shadow: none !important;
+  color: inherit !important;
+}
+
 .timeline-music-wrapper {
 
 	/* Left labels */
