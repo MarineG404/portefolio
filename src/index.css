@@ -6,21 +6,19 @@
 	--text-main: #efdfc5;
 	--text-secondary: #b8a890;
 
-	--accent: #8f0b13;
-	--accent-hover: #b91a23;
+	--accent: #e63946;
+	--accent-hover: #ff4d5a;
 
-	--text-button: #efdfc5;
+	--text-button: #ffffff;
 
-
-	/* Graph - Mode sombre */
-	--color-group-1: #D94946;
-	--color-group-1-hover: #B63C3A;
+	--color-group-1: #ff5a5f;
+	--color-group-1-hover: #ff7075;
 	--color-group-1-text: #ffffff;
-	--color-group-2: #4A8FD9;
-	--color-group-2-hover: #3A7BB6;
+	--color-group-2: #5ca3ff;
+	--color-group-2-hover: #78b4ff;
 	--color-group-2-text: #ffffff;
-	--color-group-3: #4AD97D;
-	--color-group-3-hover: #3AB66A;
+	--color-group-3: #5fff8f;
+	--color-group-3-hover: #7affaa;
 	--color-group-3-text: #1a1414;
 
 	--font-size: 1.2rem;
@@ -35,8 +33,8 @@
 	--text-main: #252b2b;
 	--text-secondary: #4c4f54;
 
-	--accent: #8f0b13;
-	--accent-hover: #6a0a0e;
+	--accent: #c1121f;
+	--accent-hover: #9a0f1a;
 
 	--text-button: #ffffff;
 
