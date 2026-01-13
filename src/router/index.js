@@ -12,10 +12,18 @@ export default createRouter({
 	routes,
 	scrollBehavior(to, from, savedPosition) {
 		if (to.hash) {
-			return {
-				el: to.hash,
-				behavior: 'smooth',
+			// try to find the element and compute offset to account for fixed nav
+			if (typeof document !== 'undefined') {
+				const el = document.querySelector(to.hash)
+				if (el) {
+					const nav = document.querySelector('nav')
+					const navHeight = nav ? nav.offsetHeight : 0
+					const extraGap = 12
+					const top = el.getBoundingClientRect().top + window.pageYOffset - navHeight - extraGap
+					return { left: 0, top, behavior: 'smooth' }
+				}
 			}
+			return { el: to.hash, behavior: 'smooth' }
 		}
 		if (savedPosition) {
 			return savedPosition
