@@ -14,6 +14,12 @@
 	--link-main: #a8dadc;
 	--link-hover: #caf0f1;
 
+	--tag-bg: #3d2626;
+	--tag-text: #e63946;
+
+	--overlay-light: rgba(255, 255, 255, 0.1);
+	--overlay-light-hover: rgba(255, 255, 255, 0.2);
+
 	--color-group-1: #ff5a5f;
 	--color-group-1-hover: #ff7075;
 	--color-group-1-text: #ffffff;
@@ -44,7 +50,12 @@
 	--link-main: #1d3557;
 	--link-hover: #457b9d;
 
-	/* Graph - Mode clair */
+	--tag-bg: #fde8e9;
+	--tag-text: #c1121f;
+
+	--overlay-light: rgba(0, 0, 0, 0.05);
+	--overlay-light-hover: rgba(0, 0, 0, 0.1);
+
 	--color-group-1: #B63C3A;
 	--color-group-1-hover: #933031;
 	--color-group-1-text: #ffffff;

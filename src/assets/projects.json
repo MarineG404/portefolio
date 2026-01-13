@@ -1,0 +1,44 @@
+{
+	"projects": [
+		{
+			"id": 1,
+			"title": "Générateur de QR code",
+			"description": "Ayant eu marre des outils en ligne remplis de publicités, j'ai créé mon propre générateur de QR code simple et efficace.",
+			"links": {
+				"website": "https://qrcode.marinegonnord.fr",
+				"github": "https://github.com/MarineG404/qr_code_generator"
+			},
+			"tags": [
+				"Outil Web",
+				"QR Code"
+			]
+		},
+		{
+			"id": 2,
+			"title": "Fokuz",
+			"description": "Cherchant un sujet pour mon projet de cours de react native, j'ai décidé de créer une application de gestion de temps de concentration et de pauses inspirée de la technique Pomodoro.",
+			"links": {
+				"website": null,
+				"github": "https://github.com/MarineG404/Fokuz"
+			},
+			"tags": [
+				"React Native",
+				"App Mobile"
+			]
+		},
+		{
+			"id": 3,
+			"title": "Serveur et nom de domaine",
+			"description": "Pour acquérir de l'autonomie, j'ai mis en place mon propre serveur et nom de domaine qui hébergent ce portfolio, le générateur de QR code et mon CV.",
+			"links": {
+				"website": "https://cv.marinegonnord.fr",
+				"github": null
+			},
+			"tags": [
+				"DevOps",
+				"Infrastructure",
+				"Hébergement"
+			]
+		}
+	]
+}

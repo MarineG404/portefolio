@@ -1,186 +1,212 @@
 <template>
-  <div class="carousel-wrapper">
-    <div class="carousel" ref="carouselRef">
-      <div class="carousel-item">
-        <h3>Générateur de QR code</h3>
-        <p>
-          Ayant eu marre des outils en ligne remplis de publicités, j'ai créé mon propre générateur de
-          QR code simple et efficace.
-        </p>
-        <button>
-          <a href="https://qrcode.marinegonnord.fr" target="_blank" rel="noopener noreferrer">
-            <i class="ri-link"></i>Visiter le site
-          </a>
-        </button>
-      </div>
+  <div class="carousel-container">
+    <swiper
+      :modules="modules"
+      :slides-per-view="1"
+      :space-between="30"
+      :loop="true"
+      :pagination="{ clickable: true }"
+      :navigation="true"
+      :breakpoints="{
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 }
+      }"
+      class="projects-swiper"
+    >
+      <swiper-slide v-for="project in projects" :key="project.id">
+        <div class="project-card">
+          <h3>{{ project.title }}</h3>
+          <p class="description">{{ project.description }}</p>
 
-      <div class="carousel-item">
-        <h3>Fokuz</h3>
-        <p>
-          Cherchant un sujet pour mon projet de cours de react native, j'ai décidé de créer une
-          application de gestion de tâches simple et épurée.
-        </p>
-        <button>
-          <a href="https://github.com/MarineG404/Fokuz" target="_blank" rel="noopener noreferrer">
-            <i class="ri-github-fill"></i>Visiter le projet
-          </a>
-        </button>
-      </div>
+          <div class="tags">
+            <span v-for="tag in project.tags" :key="tag" class="tag">
+              {{ tag }}
+            </span>
+          </div>
 
-      <div class="carousel-item">
-        <h3>Serveur et nom de domaine</h3>
-        <p>
-          Pour acquérir de l'autonomie, j'ai mis en place mon propre serveur et nom de domaine qui
-          hébergent ce portfolio, le générateur de QR code et mon CV.
-        </p>
-        <button>
-          <a href="https://cv.marinegonnord.fr" target="_blank" rel="noopener noreferrer">
-            <i class="ri-file-text-line"></i>Voir mon CV
-          </a>
-        </button>
-      </div>
-    </div>
-
-    <div class="controls">
-      <button @click="prevSlide" aria-label="Projet précédent"><i class="ri-arrow-left-line"></i></button>
-      <button @click="nextSlide" aria-label="Projet suivant"><i class="ri-arrow-right-line"></i></button>
-    </div>
+          <div class="links">
+            <a
+              v-if="project.links.website"
+              :href="project.links.website"
+              target="_blank"
+              class="link-btn"
+            >
+              <i class="ri-global-line"></i> Site
+            </a>
+            <a
+              v-if="project.links.github"
+              :href="project.links.github"
+              target="_blank"
+              class="link-btn"
+            >
+              <i class="ri-github-line"></i> GitHub
+            </a>
+          </div>
+        </div>
+      </swiper-slide>
+    </swiper>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted } from 'vue';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
-const carouselRef = ref(null)
-let items = []
-let currentIndex = 0
+import projectsData from '../../assets/projects.json';
 
-function updateCarousel() {
-  const totalItems = items.length
-  if (totalItems === 0) return
-  const angleStep = 360 / totalItems
-
-  items.forEach((item, i) => {
-    const angle = angleStep * (i - currentIndex)
-    const rad = (angle * Math.PI) / 180
-    const x = Math.sin(rad) * 400
-    const z = Math.cos(rad) * 400 - 400
-    const scale = 0.7 + Math.cos(rad) * 0.3
-    const opacity = z > -200 ? 1 : 0.3
-
-    item.style.transform = `translateX(${x}px) translateZ(${z}px) scale(${scale})`
-    item.style.opacity = opacity
-    item.style.zIndex = String(Math.round(z))
-
-    item.style.filter = i === currentIndex ? 'brightness(1.1)' : 'brightness(0.8)'
-  })
-}
-
-function goToSlide(index) {
-  currentIndex = index
-  updateCarousel()
-}
-
-function nextSlide() {
-  currentIndex = (currentIndex + 1) % items.length
-  updateCarousel()
-}
-
-function prevSlide() {
-  currentIndex = (currentIndex - 1 + items.length) % items.length
-  updateCarousel()
-}
+const modules = [Navigation, Pagination];
+const projects = ref([]);
 
 onMounted(() => {
-  const carouselEl = carouselRef.value
-  if (!carouselEl) return
-  items = Array.from(carouselEl.querySelectorAll('.carousel-item'))
-
-  items.forEach((item, i) => {
-    item.addEventListener('click', () => goToSlide(i))
-  })
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') prevSlide()
-    if (e.key === 'ArrowRight') nextSlide()
-  })
-
-  updateCarousel()
-})
+  projects.value = projectsData.projects;
+});
 </script>
 
 <style scoped>
-.carousel-wrapper {
-	position: relative;
-	height: 500px;
-	perspective: 1000px;
-	overflow: visible;
+.carousel-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px 20px;
+
+  .projects-swiper {
+    width: 100%;
+    padding: 40px 0 60px;
+
+    .project-card {
+      background: var(--bg-card);
+      border-radius: 12px;
+      border: 1px solid var(--overlay-light);
+      padding: 32px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px var(--overlay-light);
+        border-color: var(--accent);
+      }
+
+      h3 {
+        font-size: 22px;
+        font-weight: 600;
+        color: var(--text-main);
+        margin-bottom: 16px;
+        line-height: 1.3;
+      }
+
+      .description {
+        font-size: 15px;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 20px;
+        flex-grow: 1;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 24px;
+
+        .tag {
+          background: var(--tag-bg);
+          color: var(--tag-text);
+          padding: 6px 14px;
+          border-radius: 6px;
+          font-size: 13px;
+          font-weight: 500;
+          transition: background 0.2s;
+
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+
+      .links {
+        display: flex;
+        gap: 12px;
+
+        .link-btn {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          padding: 12px 20px;
+          background: var(--accent);
+          color: var(--text-button);
+          text-decoration: none;
+          border-radius: 8px;
+          font-size: 14px;
+          font-weight: 500;
+          transition: all 0.2s;
+
+          i {
+            font-size: 16px;
+          }
+
+          &:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+          }
+
+          &:active {
+            transform: translateY(0);
+          }
+        }
+      }
+    }
+  }
 }
 
-.carousel {
-	position: relative;
-	width: 100%;
-	height: 100%;
-	transform-style: preserve-3d;
-	transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+:deep(.swiper-button-next),
+:deep(.swiper-button-prev) {
+  color: var(--accent);
+
+  &:hover {
+    color: var(--accent-hover);
+  }
 }
 
-.carousel-item {
-	position: absolute;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	align-items: center;
+:deep(.swiper-pagination-bullet) {
+  background: var(--text-secondary);
+  opacity: 0.5;
 
-
-	width: 320px;
-	height: 400px;
-	left: 50%;
-	top: 50%;
-	margin-left: -160px;
-	margin-top: -200px;
-	background: var(--bg-card);
-	border-radius: 20px;
-	padding: 20px;
-	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-	transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-	cursor: pointer;
-	backface-visibility: hidden;
-	border: 1px solid var(--text-secondary);
-
-	img {
-		width: 100%;
-		height: 200px;
-		object-fit: cover;
-		border-radius: 12px;
-		margin-bottom: 15px;
-	}
-
-	h3 {
-		font-size: 1.8rem;
-		color: var(--text-main);
-		margin-bottom: 10px;
-		text-align: center;
-	}
-
-	p {
-		color: var(--text-secondary);
-		line-height: 1.6;
-		font-size: 1.1rem;
-	}
+  &-active {
+    background: var(--accent);
+    opacity: 1;
+  }
 }
 
-.controls {
-	display: flex;
-	gap: 30px;
+@media (max-width: 768px) {
+  .carousel-container {
+    padding: 40px 16px;
 
-	button {
-		padding: 10px 15px;
+    .projects-swiper {
+      .project-card {
+        padding: 24px;
 
-	}
+        h3 {
+          font-size: 20px;
+        }
 
-	i {
-		margin: 0;
-	}
+        .description {
+          font-size: 14px;
+        }
+
+        .links {
+          flex-direction: column;
+        }
+      }
+    }
+  }
 }
 </style>
