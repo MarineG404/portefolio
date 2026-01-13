@@ -11,6 +11,9 @@
 
 	--text-button: #ffffff;
 
+	--link-main: #a8dadc;
+	--link-hover: #caf0f1;
+
 	--color-group-1: #ff5a5f;
 	--color-group-1-hover: #ff7075;
 	--color-group-1-text: #ffffff;
@@ -37,6 +40,9 @@
 	--accent-hover: #9a0f1a;
 
 	--text-button: #ffffff;
+
+	--link-main: #1d3557;
+	--link-hover: #457b9d;
 
 	/* Graph - Mode clair */
 	--color-group-1: #B63C3A;
