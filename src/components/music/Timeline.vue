@@ -10,10 +10,12 @@ import { Timeline } from 'vis-timeline/standalone'
 import 'vis-timeline/styles/vis-timeline-graph2d.min.css'
 import itemsData from '../../assets/timeline-items.json'
 
+const emit = defineEmits(['select-item'])
+
 const groups = [
-	{id : 1, content: 'Solfège'},
-	{id : 2, content: 'Instruments'},
-	{id : 3, content: 'Ensembles'},
+	{ id: 1, content: 'Solfège' },
+	{ id: 2, content: 'Instruments' },
+	{ id: 3, content: 'Ensembles' },
 ]
 
 const items = itemsData.map((it) => {
@@ -41,7 +43,15 @@ onMounted(() => {
 			overflowMethod: 'cap'
 		}
 	}
-	new Timeline(container, items, groups, options)
+
+	const timeline = new Timeline(container, items, groups, options)
+
+	timeline.on('select', (properties) => {
+		if (properties.items.length > 0) {
+			const itemId = properties.items[0]
+			emit('select-item', itemId)
+		}
+	})
 })
 </script>
 
@@ -122,6 +132,7 @@ onMounted(() => {
 		border: none !important;
 		transition: all 0.2s ease;
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+		cursor: pointer;
 
 		&.vis-point,
 		&.vis-range {

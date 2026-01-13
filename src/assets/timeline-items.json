@@ -6,7 +6,8 @@
 		"start": "2007-09-01",
 		"end": "2010-06-30",
 		"className": "group-1",
-		"title": "Éveil musical — Immal de Lyon"
+		"title": "Éveil musical — Immal de Lyon",
+		"description": "Découverte des bases de la musique, du rythme et des instruments."
 	},
 	{
 		"id": 2,
@@ -15,7 +16,8 @@
 		"start": "2010-09-01",
 		"end": "2015-06-30",
 		"className": "group-1",
-		"title": "Formation Musicale — Immal de Lyon"
+		"title": "Formation Musicale — Immal de Lyon",
+		"description": "Apprentissage du solfège, de la théorie musicale et du chant."
 	},
 	{
 		"id": 3,
@@ -24,7 +26,8 @@
 		"start": "2011-09-01",
 		"end": "2015-06-30",
 		"className": "group-2",
-		"title": "Apprentissage de la flûte traversière — Valérie Wojciechowski"
+		"title": "Apprentissage de la flûte traversière — Valérie Wojciechowski",
+		"description": "Cours particuliers de flûte traversière avec Valérie Wojciechowski."
 	},
 	{
 		"id": 4,
@@ -33,7 +36,8 @@
 		"start": "2015-09-01",
 		"end": "2017-06-30",
 		"className": "group-1",
-		"title": "Formation Musicale — ENM de Villeurbanne"
+		"title": "Formation Musicale — ENM de Villeurbanne",
+		"description": "Continuation de la formation musicale. Approfondissement du solfège et de la théorie musicale."
 	},
 	{
 		"id": 5,
@@ -42,7 +46,8 @@
 		"start": "2015-09-01",
 		"end": "2020-06-30",
 		"className": "group-3",
-		"title": "Orchestre (EMI) — ENM de Villeurbanne"
+		"title": "Orchestre (EMI) — ENM de Villeurbanne",
+		"description": "Participation à l'orchestre EMI 1er et 2ème cycle de l'ENM de Villeurbanne."
 	},
 	{
 		"id": 6,
@@ -51,7 +56,8 @@
 		"start": "2016-09-01",
 		"end": "2019-09-30",
 		"className": "group-3",
-		"title": "Candell Harmonie — Lyon 8"
+		"title": "Candell Harmonie — Lyon 8",
+		"description": "Membre de la candell Harmonie."
 	},
 	{
 		"id": 7,
@@ -60,7 +66,8 @@
 		"start": "2015-09-01",
 		"end": "now",
 		"className": "group-2",
-		"title": "Apprentissage flûte traversière — ENM de Villeurbanne"
+		"title": "Apprentissage flûte traversière — ENM de Villeurbanne",
+		"description": "Cours de flûte traversière à l'ENM de Villeurbanne."
 	},
 	{
 		"id": 8,
@@ -69,7 +76,8 @@
 		"start": "2019-09-01",
 		"end": "now",
 		"className": "group-3",
-		"title": "Harmonie de Brignais — Brignais"
+		"title": "Harmonie de Brignais — Brignais",
+		"description": "Participation active à l'harmonie de Brignais, concerts et animations."
 	},
 	{
 		"id": 9,
@@ -78,7 +86,8 @@
 		"start": "2020-09-01",
 		"end": "2021-03-31",
 		"className": "group-3",
-		"title": "Harmonie ENM — ENM de Villeurbanne"
+		"title": "Harmonie ENM — ENM de Villeurbanne",
+		"description": "Participation à l'harmonie de l'ENM de Villeurbanne."
 	},
 	{
 		"id": 10,
@@ -87,6 +96,7 @@
 		"start": "2020-09-01",
 		"end": "now",
 		"className": "group-3",
-		"title": "Binioufous"
+		"title": "Binioufous",
+		"description": "Membre du groupe de musique Binioufous, création et performances musicales."
 	}
 ]

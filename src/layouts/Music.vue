@@ -4,33 +4,147 @@
 		<p>Bienvenue dans la section Musique. Ici, quelques informations sur mon parcours musical.</p>
 
 		<div class="timeline_container">
-			<Timeline />
+			<Timeline @select-item="onSelectItem" />
 		</div>
+
+    <div class="articles-list">
+      <div v-for="item in items" :key="item.id" :id="'article-' + item.id" class="article-section">
+        <div class="article-header">
+          <h3>{{ item.title }}</h3>
+          <p class="period">{{ formatPeriod(item.start, item.end) }}</p>
+        </div>
+
+        <div class="article-content">
+          <p>{{ item.description }}</p>
+        </div>
+      </div>
+    </div>
 	</article>
 </template>
 
 <script setup>
 import Timeline from "../components/music/Timeline.vue"
+import itemsData from '../assets/timeline-items.json'
 
+const items = itemsData
+
+const formatPeriod = (start, end) => {
+	const startDate = new Date(start).toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' })
+	const endDate = end === 'now' ? "Aujourd'hui" : new Date(end).toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' })
+	return `${startDate} - ${endDate}`
+}
+
+const onSelectItem = (itemId) => {
+	const el = document.getElementById('article-' + itemId)
+	if (!el) return
+
+	const nav = document.querySelector('nav')
+	const navHeight = nav ? nav.offsetHeight : 0
+	const extraGap = 12
+	const top = el.getBoundingClientRect().top + window.pageYOffset - navHeight - extraGap
+	window.scrollTo({ top, behavior: 'smooth' })
+}
 
 </script>
 
 <style scoped>
 
 .music-section {
-	gap: 20px;
-	display: flex;
-	flex-direction: column;
-	width: 100%;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 2rem 1rem;
 
-	align-items: center;
-	box-sizing: border-box;
+  h2 {
+    font-size: var(--font-size-large);
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+  }
 
-	.timeline_container {
-		width: 90%;
+  > p {
+    color: var(--text-secondary);
+    text-align: center;
+    max-width: 800px;
+  }
 
-		font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-	}
+  .timeline_container {
+    width: 90%;
+    max-width: 1400px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 2rem 0;
+  }
+
+  .articles-list {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .article-section {
+    padding: 2rem;
+    background: var(--bg-card);
+    border-radius: 16px;
+    position: relative;
+    animation: slideIn 0.5s ease;
+    width: 90%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    h3 {
+      color: var(--accent);
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+
+    .article-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .period {
+      color: var(--text-secondary);
+      font-style: italic;
+      margin: 0;
+      font-size: 0.95rem;
+      opacity: 0.9;
+      white-space: nowrap;
+    }
+
+    .article-content {
+      margin-top: 1.5rem;
+      line-height: 1.7;
+
+      p {
+        color: var(--text-main);
+        font-size: var(--font-size);
+      }
+    }
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 </style>
