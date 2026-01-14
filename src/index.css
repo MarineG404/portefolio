@@ -20,14 +20,16 @@
 	--overlay-light: rgba(255, 255, 255, 0.1);
 	--overlay-light-hover: rgba(255, 255, 255, 0.2);
 
-	--color-group-1: #ff5a5f;
-	--color-group-1-hover: #ff7075;
+	--color-group-1: #e63946;
+	--color-group-1-hover: #ff4d5a;
 	--color-group-1-text: #ffffff;
-	--color-group-2: #5ca3ff;
-	--color-group-2-hover: #78b4ff;
+
+	--color-group-2: #9d4edd;
+	--color-group-2-hover: #b565ff;
 	--color-group-2-text: #ffffff;
-	--color-group-3: #5fff8f;
-	--color-group-3-hover: #7affaa;
+
+	--color-group-3: #00d9ff;
+	--color-group-3-hover: #33e3ff;
 	--color-group-3-text: #1a1414;
 
 	--font-size: 1.2rem;
@@ -56,14 +58,16 @@
 	--overlay-light: rgba(0, 0, 0, 0.05);
 	--overlay-light-hover: rgba(0, 0, 0, 0.1);
 
-	--color-group-1: #B63C3A;
-	--color-group-1-hover: #933031;
+	--color-group-1: #c1121f;
+	--color-group-1-hover: #9a0f1a;
 	--color-group-1-text: #ffffff;
-	--color-group-2: #2E6699;
-	--color-group-2-hover: #234D73;
+
+	--color-group-2: #7b2cbf;
+	--color-group-2-hover: #5a1e99;
 	--color-group-2-text: #ffffff;
-	--color-group-3: #2E9954;
-	--color-group-3-hover: #257A44;
+
+	--color-group-3: #0099cc;
+	--color-group-3-hover: #007399;
 	--color-group-3-text: #ffffff;
 }
 
