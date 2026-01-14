@@ -56,6 +56,7 @@ nav {
 	border-bottom: 2px solid var(--text-secondary);
 	background-color: var(--bg-nav);
 	backdrop-filter: blur(10px);
+	transition: background-color 0.3s, border-bottom-color 0.3s;
 
 	.nav-container {
 		display: flex;

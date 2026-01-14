@@ -44,13 +44,15 @@ onMounted(() => {
 
 <style scoped>
 .about {
-	width: 50%;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
 
 	img {
-		margin-top: 20px;
+		margin:  30px auto;
+
+		width: 60%;
 
 		&:hover {
 			filter: drop-shadow(0 0 2px var(--accent));
@@ -78,6 +80,14 @@ onMounted(() => {
 				color: var(--link-hover);
 				text-decoration: underline;
 			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.about {
+		img {
+			width: 100%;
 		}
 	}
 }
