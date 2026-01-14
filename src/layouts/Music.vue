@@ -94,6 +94,7 @@ const onSelectItem = (itemId) => {
     width: 90%;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.05);
+	border-left: 2px solid var(--card-border);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
     &:hover {
@@ -102,7 +103,7 @@ const onSelectItem = (itemId) => {
     }
 
     h3 {
-      color: var(--accent);
+      color: var(--text-card-title);
       font-size: 1.5rem;
       margin-bottom: 0.75rem;
       font-weight: 600;

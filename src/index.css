@@ -1,27 +1,31 @@
 :root {
 	--bg-main: #1a1414;
-	--bg-nav: #252323cc;
-	--bg-card: #252b2b;
+	--bg-nav: #211a1acc;
+	--bg-card: #1f1515;
+	--bg-card-light: #2a1e1e;
 
 	--text-main: #efdfc5;
 	--text-secondary: #b8a890;
+	--text-card-title: #fef5e7;
 
-	--accent: #e63946;
-	--accent-hover: #ff4d5a;
+	--card-border: #c41018;
+
+	--accent: #77080e;
+	--accent-hover: #9a0f1a;
 
 	--text-button: #ffffff;
 
 	--link-main: #a8dadc;
 	--link-hover: #caf0f1;
 
-	--tag-bg: #3d2626;
-	--tag-text: #e63946;
+	--tag-bg: #2f1a1a;
+	--tag-text: #ff4d5a;
 
-	--overlay-light: rgba(255, 255, 255, 0.1);
-	--overlay-light-hover: rgba(255, 255, 255, 0.2);
+	--overlay-light: rgba(255, 255, 255, 0.08);
+	--overlay-light-hover: rgba(255, 255, 255, 0.15);
 
-	--color-group-1: #e63946;
-	--color-group-1-hover: #ff4d5a;
+	--color-group-1: #77080e;
+	--color-group-1-hover: #9a0f1a;
 	--color-group-1-text: #ffffff;
 
 	--color-group-2: #9d4edd;
@@ -40,12 +44,16 @@
 	--bg-main: #f5f0e8;
 	--bg-nav: #fffaf5cc;
 	--bg-card: #ffffff;
+	--bg-card-light: #f0e3e3;
 
 	--text-main: #252b2b;
 	--text-secondary: #4c4f54;
+	--text-card-title: #1a1a1a;
 
-	--accent: #c1121f;
-	--accent-hover: #9a0f1a;
+	--card-border: #77080e;
+
+	--accent: #77080e;
+	--accent-hover: #570210;
 
 	--text-button: #ffffff;
 
@@ -53,13 +61,13 @@
 	--link-hover: #457b9d;
 
 	--tag-bg: #fde8e9;
-	--tag-text: #c1121f;
+	--tag-text: #77080e;
 
 	--overlay-light: rgba(0, 0, 0, 0.05);
 	--overlay-light-hover: rgba(0, 0, 0, 0.1);
 
-	--color-group-1: #c1121f;
-	--color-group-1-hover: #9a0f1a;
+	--color-group-1: #77080e;
+	--color-group-1-hover: #570210;
 	--color-group-1-text: #ffffff;
 
 	--color-group-2: #7b2cbf;
