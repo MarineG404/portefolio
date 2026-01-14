@@ -111,11 +111,13 @@ body {
 	background-color: var(--bg-main);
 	overflow-x: hidden;
 	max-width: 100vw;
+	transition: background-color 0.3s, color 0.3s;
 }
 
 a {
 	color: inherit;
 	text-decoration: none;
+	transition: color 0.3s;
 }
 
 h1,
