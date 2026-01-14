@@ -26,6 +26,17 @@
 		display: flex;
 		flex-direction: row;
 		gap: 15px;
+		font-size: 1.3rem;
+
+		a {
+			color: var(--text-main);
+
+			&:hover {
+				color: var(--accent);
+				transform: translateY(-5px);
+				transition: color 0.3s, transform 0.3s;
+			}
+		}
 	}
 }
 </style>

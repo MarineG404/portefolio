@@ -26,6 +26,18 @@
 
 	img {
 		margin-top: 20px;
+
+		&:hover {
+			filter: drop-shadow(0 0 2px var(--accent));
+			transition: filter 0.3s, transform 0.3s;
+			transform: scale(1.02);
+		}
+
+		&:not(:hover) {
+			transition: filter 0.3s, transform 0.3s;
+			filter: none;
+			transform: scale(1);
+		}
 	}
 
 	.caption {
