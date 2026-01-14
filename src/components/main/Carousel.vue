@@ -169,21 +169,35 @@ onMounted(() => {
 
 :deep(.swiper-button-next),
 :deep(.swiper-button-prev) {
-  color: var(--accent);
+  color: var(--text-button);
+  background: var(--accent);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  top: auto;
+  bottom: 20px;
+
+  &:after {
+    font-size: 20px;
+  }
 
   &:hover {
-    color: var(--accent-hover);
+    background: var(--accent-hover);
   }
 }
 
-:deep(.swiper-pagination-bullet) {
-  background: var(--text-secondary);
-  opacity: 0.5;
+:deep(.swiper-button-prev) {
+  left: 50%;
+  transform: translateX(-70px);
+}
 
-  &-active {
-    background: var(--accent);
-    opacity: 1;
-  }
+:deep(.swiper-button-next) {
+  right: 50%;
+  transform: translateX(70px);
+}
+
+:deep(.swiper-pagination) {
+  display: none;
 }
 
 @media (max-width: 768px) {
