@@ -78,63 +78,71 @@ const onSelectItem = (itemId) => {
   }
 
   .articles-list {
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	width: 100%;
+	align-items: center;
+
+	.article-section {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		padding: 1.5rem;
+		background: var(--bg-card);
+		border-radius: 16px;
+		position: relative;
+		animation: slideIn 0.5s ease;
+		width: 90%;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.05);
+		border-left: 2px solid var(--card-border);
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+		.article-header {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			flex-wrap: wrap;
+
+			h3 {
+				color: var(--text-card-title);
+				font-size: 1.5rem;
+				margin-bottom: 0.75rem;
+				font-weight: 600;
+			}
+
+			.period {
+				color: var(--text-secondary);
+				font-size: 0.9rem;
+				font-style: italic;
+			}
+		}
+
+		&:hover {
+			transform: translateY(-4px);
+			box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+		}
+  	}
   }
 
-  .article-section {
-    padding: 2rem;
-    background: var(--bg-card);
-    border-radius: 16px;
-    position: relative;
-    animation: slideIn 0.5s ease;
-    width: 90%;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-	border-left: 2px solid var(--card-border);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-    &:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-    }
+@media (max-width: 600px) {
+	.articles-list
+	.article-section {
+		width: 100%;
+		padding: 1rem;
 
-    h3 {
-      color: var(--text-card-title);
-      font-size: 1.5rem;
-      margin-bottom: 0.75rem;
-      font-weight: 600;
-    }
+		.article-header {
+			flex-direction: column;
+			align-items: flex-start;
 
-    .article-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 1rem;
-    }
-
-    .period {
-      color: var(--text-secondary);
-      font-style: italic;
-      margin: 0;
-      font-size: 0.95rem;
-      opacity: 0.9;
-      white-space: nowrap;
-    }
-
-    .article-content {
-      margin-top: 1.5rem;
-      line-height: 1.7;
-
-      p {
-        color: var(--text-main);
-        font-size: var(--font-size);
-      }
-    }
-  }
+			h3 {
+				font-size: 1.25rem;
+			}
+		}
+	}
 }
 
 @keyframes slideIn {
