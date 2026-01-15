@@ -9,7 +9,7 @@
       :navigation="true"
       :breakpoints="{
         768: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 }
+        1024: { slidesPerView: 3 },
       }"
       class="projects-swiper"
     >
@@ -49,14 +49,14 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import { ref, onMounted } from "vue";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
-import projectsData from '../../assets/projects.json';
+import projectsData from "../../assets/projects.json";
 
 const modules = [Navigation, Pagination];
 const projects = ref([]);

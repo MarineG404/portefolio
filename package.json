@@ -1,20 +1,23 @@
 {
-	"name": "portefolio_vuejs",
-	"version": "0.0.0",
-	"scripts": {
-		"dev": "vite",
-		"build": "vite build"
-	},
-	"dependencies": {
-		"swiper": "^12.0.3",
-		"vis-data": "^8.0.3",
-		"vis-timeline": "^8.5.0",
-		"vue": "^3.0.4",
-		"vue-router": "^4.6.4"
-	},
-	"devDependencies": {
-		"@vitejs/plugin-vue": "^6.0.3",
-		"@vue/compiler-sfc": "^3.0.4",
-		"vite": "^7.3.0"
-	}
+  "name": "portefolio_vuejs",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "swiper": "^12.0.3",
+    "vis-data": "^8.0.3",
+    "vis-timeline": "^8.5.0",
+    "vue": "^3.0.4",
+    "vue-router": "^4.6.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.3",
+    "@vue/compiler-sfc": "^3.0.4",
+    "prettier": "^3.8.0",
+    "vite": "^7.3.0"
+  }
 }
