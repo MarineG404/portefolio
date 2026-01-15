@@ -7,7 +7,7 @@
         stage.
       </p>
       <button>
-        <a href="#contact"><i class="ri-mail-line"></i>Me contacter</a>
+        <a href="#contact"><i class="ri-mail-line" />Me contacter</a>
       </button>
     </div>
     <img src="../../assets/avatar.svg" alt="Photo de Marine Gonnord" />

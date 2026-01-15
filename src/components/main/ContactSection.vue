@@ -7,20 +7,20 @@
         href="https://github.com/marineG404"
         target="_blank"
         rel="noopener noreferrer"
-        ><i class="ri-github-line"></i
-      ></a>
+        ><i class="ri-github-line"
+      /></a>
       <a
         href="https://www.linkedin.com/in/marine-gonnord-7a1517234/"
         target="_blank"
         rel="noopener noreferrer"
-        ><i class="ri-linkedin-line"></i
-      ></a>
+        ><i class="ri-linkedin-line"
+      /></a>
       <a
         href="mailto:marine.gonnord.pro@gmail.com"
         target="_blank"
         rel="noopener noreferrer"
-        ><i class="ri-mail-line"></i
-      ></a>
+        ><i class="ri-mail-line"
+      /></a>
     </div>
   </section>
 </template>

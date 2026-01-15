@@ -1,6 +1,6 @@
 <template>
   <div class="timeline-music-wrapper">
-    <div ref="timelineRef" style="width: 100%"></div>
+    <div ref="timelineRef" style="width: 100%" />
   </div>
 </template>
 

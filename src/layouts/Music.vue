@@ -13,13 +13,15 @@
     <div class="articles-list">
       <div
         v-for="item in items"
-        :key="item.id"
         :id="'article-' + item.id"
+        :key="item.id"
         class="article-section"
       >
         <div class="article-header">
           <h3>{{ item.title }}</h3>
-          <p class="period">{{ formatPeriod(item.start, item.end) }}</p>
+          <p class="period">
+            {{ formatPeriod(item.start, item.end) }}
+          </p>
         </div>
 
         <div class="article-content">

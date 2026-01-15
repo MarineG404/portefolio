@@ -16,7 +16,9 @@
       <swiper-slide v-for="project in projects" :key="project.id">
         <div class="project-card">
           <h3>{{ project.title }}</h3>
-          <p class="description">{{ project.description }}</p>
+          <p class="description">
+            {{ project.description }}
+          </p>
 
           <div class="tags">
             <span v-for="tag in project.tags" :key="tag" class="tag">
@@ -31,7 +33,7 @@
               target="_blank"
               class="link-btn"
             >
-              <i class="ri-global-line"></i> Site
+              <i class="ri-global-line" /> Site
             </a>
             <a
               v-if="project.links.github"
@@ -39,7 +41,7 @@
               target="_blank"
               class="link-btn"
             >
-              <i class="ri-github-line"></i> GitHub
+              <i class="ri-github-line" /> GitHub
             </a>
           </div>
         </div>

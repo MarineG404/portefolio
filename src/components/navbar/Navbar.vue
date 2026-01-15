@@ -6,17 +6,17 @@
       </div>
 
       <div class="item">
-        <router-link :to="{ path: '/', hash: '#projects' }"
-          >Projets</router-link
-        >
-        <router-link :to="{ path: '/music' }">Musique</router-link>
+        <router-link :to="{ path: '/', hash: '#projects' }">
+          Projets
+        </router-link>
+        <router-link :to="{ path: '/music' }"> Musique </router-link>
         <button
-          class="theme-toggle"
           id="theme-toggle"
+          class="theme-toggle"
           aria-label="Changer de thème"
           @click="toggleTheme"
         >
-          <i :class="isLight ? 'ri-moon-line' : 'ri-sun-line'"></i>
+          <i :class="isLight ? 'ri-moon-line' : 'ri-sun-line'" />
         </button>
       </div>
     </div>
@@ -25,7 +25,6 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import router from "../../router";
 
 const isLight = ref(false);
 
