@@ -17,7 +17,7 @@
         <div class="main-info">
           <h2>Marine Gonnord</h2>
 
-          <p>Marine Gonnord • She/Her • [code]</p>
+          <p>Marine Gonnord • She/Her</p>
 
           <div class="actions">
             <a
@@ -189,7 +189,6 @@ const close = () => {
   flex-direction: row;
   gap: 2rem;
   width: 100%;
-  margin-bottom: 1rem;
   flex-wrap: wrap;
 
   @media (max-width: 900px) {

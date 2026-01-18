@@ -115,11 +115,32 @@ watch(
     width: auto;
     max-width: 90vw;
     max-height: 90vh;
+    overflow-y: auto;
+
+    /* Styling de la scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+    }
 
     @media (max-width: 900px) {
       max-width: 95vw;
       max-height: 95vh;
-      overflow-y: auto;
     }
 
     @media (max-width: 480px) {
@@ -127,7 +148,6 @@ watch(
       max-height: 98vh;
       padding: 0.75rem;
       gap: 0.75rem;
-      overflow-y: auto;
     }
 
     .modal-header {
@@ -135,6 +155,7 @@ watch(
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
+      padding: 10px;
 
       button {
         background: none;
@@ -152,6 +173,23 @@ watch(
       display: flex;
       flex-direction: column;
       width: 100%;
+    }
+
+    .modal-footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem 0 0 0;
+      margin-top: 0.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+      p {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        opacity: 0.7;
+      }
     }
   }
 }
