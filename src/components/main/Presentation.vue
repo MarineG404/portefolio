@@ -6,16 +6,25 @@
         Je suis développeuse web en formation, actuellement en recherche de
         stage.
       </p>
-      <button>
-        <a href="#contact"><i class="ri-mail-line" />Me contacter</a>
+      <button @click="contactModal.open()" class="contact-button">
+        <i class="ri-mail-line" />Me contacter
       </button>
     </div>
     <img src="../../assets/avatar.svg" alt="Photo de Marine Gonnord" />
+
+    <ContactModal
+      :isOpen="contactModal.isOpen.value"
+      @close="contactModal.close()"
+    />
   </article>
 </template>
 
 <script setup>
-// simple presentational component
+
+import { useModal } from "@/composables/useModal";
+import ContactModal from "@/components/modal/Contact.vue";
+
+const contactModal = useModal();
 </script>
 
 <style scoped>

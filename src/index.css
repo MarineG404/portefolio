@@ -3,6 +3,7 @@
   --bg-nav: #211a1acc;
   --bg-card: #1f1515;
   --bg-card-light: #2a1e1e;
+  --bg-card-transparent: #1f1515cc;
 
   --text-main: #efdfc5;
   --text-secondary: #b8a890;
@@ -45,6 +46,7 @@
   --bg-nav: #fffaf5cc;
   --bg-card: #ffffff;
   --bg-card-light: #f0e3e3;
+  --bg-card-transparent: #f5f0e8dd;
 
   --text-main: #252b2b;
   --text-secondary: #4c4f54;
