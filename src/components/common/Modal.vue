@@ -13,7 +13,7 @@
             aria-label="Fermer"
             @click="handleClose"
           >
-            ×
+            <i class="ri-close-line"></i>
           </button>
         </div>
 
@@ -161,6 +161,15 @@ watch(
         background: none;
         margin: 0;
         padding: 0;
+		color : var(--text-secondary);
+
+		&:hover {
+		  color: var(--text-secondary);
+		}
+
+		i {
+		  font-size: 1.5rem;
+		}
       }
 
       h3 {

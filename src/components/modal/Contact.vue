@@ -17,7 +17,7 @@
         <div class="main-info">
           <h2>Marine Gonnord</h2>
 
-          <p>Marine Gonnord • She/Her</p>
+          <p>marine.gonnord.pro@gmail.com • She/Her</p>
 
           <div class="actions">
             <a
