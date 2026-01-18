@@ -2,7 +2,9 @@
   <nav>
     <div class="nav-container">
       <div class="main">
-        <a href="#"><h1>Marine Gonnord</h1></a>
+        <router-link to="/">
+          <h1>Marine Gonnord</h1>
+        </router-link>
       </div>
 
       <div class="item">
