@@ -28,7 +28,7 @@
     "className": "group-2",
     "title": "Apprentissage de la flûte traversière — Valérie Wojciechowski",
     "description": "Cours particuliers de flûte traversière avec Valérie Wojciechowski.",
-	"img_path": "@/assets/img/flute.png"
+    "img_path": "/src/assets/img/flute.png"
   },
   {
     "id": 4,
@@ -39,7 +39,7 @@
     "className": "group-1",
     "title": "Formation Musicale — ENM de Villeurbanne",
     "description": "Continuation de la formation musicale. Approfondissement du solfège et de la théorie musicale.",
-	"img_path": "@/assets/img/ENM.png"
+    "img_path": "/src/assets/img/ENM.png"
   },
   {
     "id": 5,
@@ -50,7 +50,7 @@
     "className": "group-3",
     "title": "Orchestre (EMI) — ENM de Villeurbanne",
     "description": "Participation à l'orchestre EMI 1er et 2ème cycle de l'ENM de Villeurbanne.",
-	"img_path": "@/assets/img/logo_ENM.png"
+    "img_path": "/src/assets/img/logo_ENM.png"
   },
   {
     "id": 6,
@@ -71,7 +71,7 @@
     "className": "group-2",
     "title": "Apprentissage flûte traversière — ENM de Villeurbanne",
     "description": "Cours de flûte traversière à l'ENM de Villeurbanne.",
-	"img_path": "@/assets/img/flute.png"
+    "img_path": "/src/assets/img/flute.png"
   },
   {
     "id": 8,
@@ -82,7 +82,7 @@
     "className": "group-3",
     "title": "Harmonie de Brignais — Brignais",
     "description": "Participation active à l'harmonie de Brignais, concerts et animations.",
-	"img_path": "@/assets/img/brignais.png"
+    "img_path": "/src/assets/img/brignais.png"
   },
   {
     "id": 9,
@@ -103,6 +103,6 @@
     "className": "group-3",
     "title": "Binioufous",
     "description": "Membre du groupe de musique Binioufous, création et performances musicales.",
-	"img_path": "@/assets/img/binioufous.png"
+    "img_path": "/src/assets/img/binioufous.png"
   }
 ]

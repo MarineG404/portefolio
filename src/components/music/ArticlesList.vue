@@ -16,7 +16,7 @@
       <div class="article-content">
         <img
           v-if="item.img_path"
-          :src="getImagePath(item.img_path)"
+          :src="item.img_path"
           :alt="item.title"
           class="article-image"
         />
@@ -49,10 +49,6 @@ const formatPeriod = (start, end) => {
           year: "numeric",
         });
   return `${startDate} - ${endDate}`;
-};
-
-const getImagePath = (path) => {
-  return path.replace("@/assets", "/src/assets");
 };
 </script>
 
