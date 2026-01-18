@@ -114,6 +114,21 @@ watch(
     background-color: var(--bg-card-transparent);
     width: auto;
     max-width: 90vw;
+    max-height: 90vh;
+
+    @media (max-width: 900px) {
+      max-width: 95vw;
+      max-height: 95vh;
+      overflow-y: auto;
+    }
+
+    @media (max-width: 480px) {
+      max-width: 98vw;
+      max-height: 98vh;
+      padding: 0.75rem;
+      gap: 0.75rem;
+      overflow-y: auto;
+    }
 
     .modal-header {
       display: flex;

@@ -190,20 +190,41 @@ const close = () => {
   gap: 2rem;
   width: 100%;
   margin-bottom: 1rem;
+  flex-wrap: wrap;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    gap: 1rem;
+  }
 
   .personal-info {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     background: var(--bg-card);
-    width: auto;
+    flex: 1 1 350px;
+    min-width: 300px;
     border-radius: 8px;
+
+    @media (max-width: 900px) {
+      flex: 1;
+      min-width: unset;
+    }
 
     .banner {
       width: 100%;
       height: 120px;
       position: relative;
       margin-bottom: 50px;
+
+      @media (max-width: 480px) {
+        height: 90px;
+        margin-bottom: 45px;
+      }
 
       .banner-bg {
         width: 100%;
@@ -217,12 +238,21 @@ const close = () => {
         bottom: -50px;
         left: 16px;
 
+        @media (max-width: 480px) {
+          bottom: -45px;
+        }
+
         .avatar {
           width: 92px;
           height: 92px;
           border-radius: 50%;
           border: 6px solid var(--bg-card);
           background: var(--bg-card);
+
+          @media (max-width: 480px) {
+            width: 80px;
+            height: 80px;
+          }
         }
       }
     }
@@ -235,17 +265,31 @@ const close = () => {
       width: 100%;
       align-items: flex-start;
 
+      @media (max-width: 480px) {
+        padding: 0.75rem 1rem;
+        gap: 0.75rem;
+      }
+
       h2 {
         text-align: left;
+
+        @media (max-width: 480px) {
+          font-size: 1.3rem;
+        }
       }
 
       p {
         text-align: left;
+
+        @media (max-width: 480px) {
+          font-size: 0.9rem;
+        }
       }
 
       .actions {
         display: flex;
         gap: 0.5rem;
+        flex-wrap: wrap;
 
         .send-message-btn {
           padding: 0.4rem 1rem;
@@ -338,6 +382,9 @@ const close = () => {
 
             span {
               flex: 1;
+              font-size: 14px;
+              word-break: break-word;
+
               &:hover {
                 text-decoration: underline;
               }
@@ -356,15 +403,29 @@ const close = () => {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    width: auto;
+    flex: 1 1 350px;
+    min-width: 300px;
     border-radius: 8px;
     padding: 1rem;
     align-items: center;
+
+    @media (max-width: 900px) {
+      flex: 1;
+      min-width: unset;
+    }
+
+    @media (max-width: 480px) {
+      padding: 0.5rem;
+    }
 
     h3 {
       margin: 0;
       text-align: left;
       width: 100%;
+
+      @media (max-width: 480px) {
+        font-size: 1.1rem;
+      }
     }
 
     .card-link {
@@ -387,6 +448,11 @@ const close = () => {
       width: 100%;
       transition: all 0.3s ease;
 
+      @media (max-width: 480px) {
+        padding: 0.75rem;
+        gap: 0.75rem;
+      }
+
       &:hover {
         transform: translateY(-4px);
         background: var(--bg-card-hover);
@@ -394,6 +460,10 @@ const close = () => {
 
       p {
         text-align: left;
+
+        @media (max-width: 480px) {
+          font-size: 0.9rem;
+        }
       }
 
       .item {
@@ -402,19 +472,38 @@ const close = () => {
         gap: 1.5rem;
         align-items: center;
 
+        @media (max-width: 480px) {
+          gap: 1rem;
+        }
+
         img {
           width: 100px;
+          flex-shrink: 0;
+
+          @media (max-width: 480px) {
+            width: 70px;
+          }
         }
 
         .txt {
           display: flex;
           flex-direction: column;
           gap: 0.3rem;
+          flex: 1;
+          min-width: 0;
+
+          p {
+            word-break: break-word;
+          }
 
           .game {
             color: #91bb96;
             font-size: 20px;
             font-family: "Fira Code", "JetBrains Mono", monospace;
+
+            @media (max-width: 480px) {
+              font-size: 16px;
+            }
           }
         }
       }
