@@ -10,8 +10,8 @@
           <button
             v-if="showCloseButton"
             class="modal-close"
-            @click="handleClose"
             aria-label="Fermer"
+            @click="handleClose"
           >
             ×
           </button>

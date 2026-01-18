@@ -1,9 +1,9 @@
 <template>
   <Modal
-    :isOpen="isOpen"
-    @close="close"
+    :is-open="isOpen"
     title="Contactez-moi"
-    modalClass="contact-modal"
+    modal-class="contact-modal"
+    @close="close"
   >
     <div class="contact-content">
       <div class="personal-info">
@@ -157,9 +157,11 @@
       </div>
     </div>
     <!-- footer -->
-    <div slot="footer">
-      <p>Design inspiré de Discord - Réalisé par Marine Gonnord</p>
-    </div>
+    <template #footer>
+      <div>
+        <p>Design inspiré de Discord - Réalisé par Marine Gonnord</p>
+      </div>
+    </template>
   </Modal>
 </template>
 
