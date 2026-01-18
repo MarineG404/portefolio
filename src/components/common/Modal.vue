@@ -161,15 +161,15 @@ watch(
         background: none;
         margin: 0;
         padding: 0;
-		color : var(--text-secondary);
+        color: var(--text-secondary);
 
-		&:hover {
-		  color: var(--text-secondary);
-		}
+        &:hover {
+          color: var(--text-secondary);
+        }
 
-		i {
-		  font-size: 1.5rem;
-		}
+        i {
+          font-size: 1.5rem;
+        }
       }
 
       h3 {
