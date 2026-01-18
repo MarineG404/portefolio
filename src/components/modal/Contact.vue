@@ -109,7 +109,7 @@
         <div class="card">
           <p>Joue à</p>
           <div class="item">
-            <img src="/src/assets/img/vs-code.png" alt="Travail en cours" />
+            <img src="/img/vs-code.png" alt="Travail en cours" />
             <div class="txt">
               <p><strong>Visual Studio Code</strong></p>
               <p>Édition de src/components/modal/Contact.vue</p>
@@ -121,7 +121,7 @@
         <div class="card">
           <p>Écoute Deezer <i class="ri-headphone-line"></i></p>
           <div class="item">
-            <img src="/src/assets/img/deezer.jpg" alt="Musique récente" />
+            <img src="/img/deezer.jpg" alt="Musique récente" />
             <div class="txt">
               <p><strong>Écoute de Mr/Mme</strong></p>
               <p>Loïc Nottet</p>
@@ -140,10 +140,7 @@
           <div class="card">
             <p>Dernière activité GitHub <i class="ri-github-fill"></i></p>
             <div class="item">
-              <img
-                src="/src/assets/img/github.png"
-                alt="GitHub recent activity"
-              />
+              <img src="/img/github.png" alt="GitHub recent activity" />
               <div class="txt">
                 <p><strong>MarineG404</strong> a créé une nouvelle branche</p>
                 <p>Repository: portefolio_vuejs</p>
