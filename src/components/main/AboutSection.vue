@@ -5,7 +5,7 @@
 
     <img
       :key="bgColor"
-      :src="`https://urskill.erickpaoletti.fr?icons=javascript,typescript,npm,,,vscode,visualstudio,pycharm,,,linux,debian,ubuntu,html,bootstrap,css,,,github,gitlab,git,,,windows,arduino,raspberrypi,python,php,cs,cpp,,docker,mysql,postman,,,,,,angular,react,vuejs,,,,githubactions,,,,,,,symfony,tempora,django&max_per_row=13&background_color=${bgColor}`"
+      :src="`https://urskill.erickpaoletti.fr?icons=javascript,typescript,npm,,,vscode,visualstudio,pycharm,,,linux,debian,ubuntu,html,bootstrap,css,,,github,gitlab,git,,,windows,arduino,raspberrypi,python,php,csharp,cpp,,docker,mysql,postman,,,,,,angular,react,vuejs,,,,githubactions,,,,,,,symfony,tempora,django&max_per_row=13&background_color=${bgColor}`"
     />
 
     <p class="caption">
