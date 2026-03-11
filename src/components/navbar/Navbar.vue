@@ -8,10 +8,16 @@
       </div>
 
       <div class="item">
+        <!-- cv en ligen: https://cv.marinegonnord.fr/ -->
+        <a href="https://cv.marinegonnord.fr/" target="_blank" rel="noopener">
+          <i class="ri-external-link-line"></i> CV en ligne
+        </a>
         <router-link :to="{ path: '/', hash: '#projects' }">
-          Projets
+          <i class="ri-briefcase-line"></i> Projets
         </router-link>
-        <router-link :to="{ path: '/music' }"> Musique </router-link>
+        <router-link :to="{ path: '/music' }">
+          <i class="ri-music-line"></i> Musique
+        </router-link>
         <button
           id="theme-toggle"
           class="theme-toggle"
