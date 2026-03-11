@@ -8,7 +8,6 @@
       </div>
 
       <div class="item">
-        <!-- cv en ligen: https://cv.marinegonnord.fr/ -->
         <a href="https://cv.marinegonnord.fr/" target="_blank" rel="noopener">
           <i class="ri-external-link-line"></i> CV en ligne
         </a>

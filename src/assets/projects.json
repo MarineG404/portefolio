@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "Générateur de QR code",
-      "description": "Ayant eu marre des outils en ligne remplis de publicités, j'ai créé mon propre générateur de QR code simple et efficace.",
+      "description": "Constatant les limitations et la présence de publicités sur de nombreux outils en ligne, j'ai développé un générateur de QR code personnel, open source, offrant une solution simple, efficace et sans publicité accessible à toutes et à tous.",
       "links": {
         "website": "https://qrcode.marinegonnord.fr",
         "github": "https://github.com/MarineG404/qr_code_generator"
