@@ -36,12 +36,12 @@
               <i class="ri-global-line" /> Site
             </a>
             <a
-              v-if="project.links.github"
-              :href="project.links.github"
+              v-if="project.links.repo"
+              :href="project.links.repo"
               target="_blank"
               class="link-btn"
             >
-              <i class="ri-github-line" /> GitHub
+              <i :class="repoIcon(project.links.repo)" /> {{ repoLabel(project.links.repo) }}
             </a>
           </div>
         </div>
@@ -66,6 +66,14 @@ const projects = ref([]);
 onMounted(() => {
   projects.value = projectsData.projects;
 });
+
+function repoLabel(url) {
+  return url.includes("framagit.org") ? "Framagit" : "GitHub";
+}
+
+function repoIcon(url) {
+  return url.includes("framagit.org") ? "ri-git-repository-line" : "ri-github-line";
+}
 </script>
 
 <style scoped>

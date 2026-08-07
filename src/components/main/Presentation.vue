@@ -3,8 +3,8 @@
     <div class="text">
       <h2>Marine Gonnord</h2>
       <p>
-        Je suis développeuse web en formation, actuellement en recherche de
-        stage.
+        Je suis étudiante en mastère Développement Web (EADL) à l'ORT Lyon,
+        actuellement en alternance chez la DGFIP jusqu'en 2028.
       </p>
       <button class="contact-button" @click="contactModal.open()">
         <i class="ri-mail-line" />Me contacter

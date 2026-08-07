@@ -50,6 +50,12 @@ Portfolio personnel développé avec Vue.js, présentant mes projets, compétenc
 }
 ```
 
+## 📊 Données
+
+- `src/assets/projects.json` : projets affichés dans le carousel (`Carousel.vue`). Sélection **manuelle et curatée**, pas une liste exhaustive de tous les repos GitHub.
+- `src/assets/timeline-items.json` : frise du parcours musical (`Music.vue`).
+- Voir `CLAUDE.md` pour le détail de la sélection des projets et la logique de curation.
+
 ## 📂 Structure
 
 ```

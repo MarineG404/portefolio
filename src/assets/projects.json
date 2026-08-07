@@ -6,27 +6,77 @@
       "description": "Constatant les limitations et la présence de publicités sur de nombreux outils en ligne, j'ai développé un générateur de QR code personnel, open source, offrant une solution simple, efficace et sans publicité accessible à toutes et à tous.",
       "links": {
         "website": "https://qrcode.marinegonnord.fr",
-        "github": "https://github.com/MarineG404/qr_code_generator"
+        "repo": "https://github.com/MarineG404/QR_Code_generator"
       },
       "tags": ["Outil Web", "QR Code"]
     },
     {
       "id": 2,
       "title": "Fokuz",
-      "description": "Cherchant un sujet pour mon projet de cours de react native, j'ai décidé de créer une application de gestion de temps de concentration et de pauses inspirée de la technique Pomodoro.",
+      "description": "Cherchant un sujet pour mon projet de cours de React Native, j'ai développé une application mobile de productivité pour aider les personnes ayant des difficultés de concentration, avec des méthodes éprouvées (Pomodoro, Deep Work) et la possibilité de créer ses propres cycles de travail et de pause.",
       "links": {
         "website": null,
-        "github": "https://github.com/MarineG404/Fokuz"
+        "repo": "https://github.com/MarineG404/Fokuz"
+      },
+      "tags": ["React Native", "App Mobile", "Productivité"]
+    },
+    {
+      "id": 3,
+      "title": "ADHDragon",
+      "description": "Concernée par le TDAH, j'ai développé ADHDragon, une extension Chrome qui transforme la concentration en jeu : on définit ses sites de travail, on gagne des pièces en restant concentré dessus, puis on les utilise pour prendre soin d'un dragon virtuel (le nourrir, l'abreuver, etc.).",
+      "links": {
+        "website": null,
+        "repo": "https://github.com/MarineG404/ADHDragon"
+      },
+      "tags": ["Extension Chrome", "Accessibilité", "Productivité"]
+    },
+    {
+      "id": 4,
+      "title": "ETA",
+      "description": "Envie de mêler développement mobile et voyage virtuel, j'ai créé ETA, une application React Native qui affiche les fuseaux horaires du monde et localise en temps réel les régions où l'apéro bat son plein.",
+      "links": {
+        "website": null,
+        "repo": "https://github.com/MarineG404/ETA"
       },
       "tags": ["React Native", "App Mobile"]
     },
     {
-      "id": 3,
+      "id": 5,
+      "title": "Stephagramme",
+      "description": "Passionnée de Scrabble, j'ai développé Stephagramme, une application mobile qui trouve tous les mots possibles à partir d'un tirage de lettres (jokers compris) et permet de consulter leurs définitions directement via le Wiktionnaire.",
+      "links": {
+        "website": null,
+        "repo": "https://github.com/MarineG404/Stephagramme"
+      },
+      "tags": ["React Native", "App Mobile", "Jeux"]
+    },
+    {
+      "id": 6,
+      "title": "Chronomecs",
+      "description": "Contributrice sur Chronomecs, un outil qui mesure et rend visible le temps de parole genré en réunion, pour objectiver et lutter contre les inégalités de prise de parole entre les femmes et les hommes.",
+      "links": {
+        "website": "https://chronomecs.frama.io/",
+        "repo": "https://framagit.org/chronomecs/chronomecs.frama.io"
+      },
+      "tags": ["Outil Web", "Inclusion", "Open Source"]
+    },
+    {
+      "id": 7,
+      "title": "Systemhak",
+      "description": "Envie de tester concrètement les skills et agents de Claude Code, j'ai vibe-codé Systemhak en une session : un tableau de bord dans la barre système KDE pour basculer entre versions de Node/PHP/Java et suivre mon utilisation de Claude Code.",
+      "links": {
+        "website": null,
+        "repo": "https://github.com/MarineG404/systemhak"
+      },
+      "tags": ["Vibe Coding", "Claude Code", "Outil Dev"]
+    },
+    {
+      "id": 8,
       "title": "Serveur et nom de domaine",
       "description": "Pour acquérir de l'autonomie, j'ai mis en place mon propre serveur et nom de domaine qui hébergent ce portfolio, le générateur de QR code et mon CV.",
       "links": {
         "website": "https://cv.marinegonnord.fr",
-        "github": null
+        "repo": null
       },
       "tags": ["DevOps", "Infrastructure", "Hébergement"]
     }
