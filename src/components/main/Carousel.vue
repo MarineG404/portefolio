@@ -41,7 +41,8 @@
               target="_blank"
               class="link-btn"
             >
-              <i :class="repoIcon(project.links.repo)" /> {{ repoLabel(project.links.repo) }}
+              <i :class="repoIcon(project.links.repo)" />
+              {{ repoLabel(project.links.repo) }}
             </a>
           </div>
         </div>
@@ -72,7 +73,9 @@ function repoLabel(url) {
 }
 
 function repoIcon(url) {
-  return url.includes("framagit.org") ? "ri-git-repository-line" : "ri-github-line";
+  return url.includes("framagit.org")
+    ? "ri-git-repository-line"
+    : "ri-github-line";
 }
 </script>
 

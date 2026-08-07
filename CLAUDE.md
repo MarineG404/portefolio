@@ -6,12 +6,13 @@ Portfolio personnel Vue.js de Marine, déployé en prod sur `/var/www/portefolio
 
 Liste **curatée à la main**, pas générée automatiquement. Le repo `/var/www/cv_js` contient
 `data/projects.json` (export brut de tous les repos GitHub/GitLab/Framagit, généré par script,
-champ `generated_at`) et `data/data.json` (infos CV). Ces fichiers servent de *source de données*
+champ `generated_at`) et `data/data.json` (infos CV). Ces fichiers servent de _source de données_
 à consulter, mais **ne pas copier tel quel** dans `projects.json` : le portfolio ne montre qu'une
 sélection de projets forts, avec des descriptions réécrites en narratif perso (style "j'ai
 développé...", pas la description GitHub brute).
 
 Critères de sélection retenus (2026-08-07) :
+
 - Uniquement des projets personnels **publics** (pas de repos privés d'équipe type Dock-Lens,
   Mocapia, Kebab, FiveLeague : pas de lien GitHub public utilisable pour un·e visiteur·se).
 - Projets avec une vraie histoire/valeur à raconter, pas les exercices scolaires vides
